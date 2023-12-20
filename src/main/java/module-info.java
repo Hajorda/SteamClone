@@ -6,6 +6,7 @@ module com.balikicindebalik.steamclone {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.balikicindebalik.steamclone to javafx.fxml;
     exports com.balikicindebalik.steamclone;
