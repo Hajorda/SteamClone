@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.fxmlll.store.storeV01Controller">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <ToolBar prefHeight="54.0" prefWidth="909.0" style="-fx-background-color: #00ffe5;">
+               <items>
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="100.0" text="STORE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Pane prefHeight="44.0" prefWidth="694.0" />
+                  <Button fx:id="ProfileBtn" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoProfile" text="Profile">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </items>
+            </ToolBar>
+            <SplitPane dividerPositions="0.7884187082405345" prefHeight="593.0" prefWidth="900.0">
+               <items>
+                  <ScrollPane prefHeight="544.0" prefWidth="526.0">
+                     <content>
+                        <VBox prefHeight="1000.0" prefWidth="692.0">
+                           <children>
+                              <HBox prefHeight="26.0" prefWidth="692.0" style="-fx-background-color: #656565;">
+                                 <children>
+                                    <Pane prefHeight="45.0" prefWidth="120.0" />
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="NAME" textAlignment="CENTER" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="154.0" text="DATE" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="197.0" text="FEE" textFill="WHITE" underline="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/cs2/capsule_sm_120.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Counter-Strike 2" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="21.08.2012" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $00.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/BalderGate3/capsule_sm_120.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Baldur's Gate 3" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="3.08.2023" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $34.99" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                              <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="692.0" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Pane prefHeight="20.0" prefWidth="187.0" />
+                        <Label alignment="CENTER" prefHeight="37.0" prefWidth="188.0" text="GAME FILTER" textAlignment="CENTER" textFill="RED" underline="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <SplitPane dividerPositions="0.827027027027027" prefHeight="30.0" prefWidth="257.0">
+                           <items>
+                              <TextField alignment="CENTER" prefHeight="28.0" prefWidth="189.0" promptText="Find Game" />
+                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" text="✓" />
+                           </items>
+                        </SplitPane>
+                        <Pane prefHeight="55.0" prefWidth="187.0" />
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="187.0" text="Genres" textAlignment="CENTER" textFill="#5819b5">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Action">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="RPG">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Platformer">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Strategy">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Simulation">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Horror">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="36.0" prefWidth="194.0" text="Soccer">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

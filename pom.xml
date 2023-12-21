@@ -22,13 +22,6 @@
             <version>2.2</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>6.4.1.Final</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.4.1.Final</version>
@@ -108,6 +101,15 @@
                 <configuration>
                     <source>20</source>
                     <target>20</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <configuration>
+                    <buildArgs>
+                        <buildArg>-Dorg.sqlite.lib.exportPath=${project.build.directory}</buildArg>
+                    </buildArgs>
                 </configuration>
             </plugin>
             <plugin>
