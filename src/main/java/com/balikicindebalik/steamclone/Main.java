@@ -16,7 +16,7 @@ public class Main {
 
     }
 
-    public static void addUser(String nick, String firstName, String lastName, String email, int password) {
+    public static int addUser(String nick, String firstName, String lastName, String email, int password) {
 
         int random = (int) (Math.random() * 1000000);
 
@@ -43,7 +43,7 @@ public class Main {
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "done");
         }
-
+        return random;
     }
 
     public static void readUser() {
@@ -94,6 +94,7 @@ public class Main {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " ?");
+            //TODO Exception handling!
         }
     }
 }
