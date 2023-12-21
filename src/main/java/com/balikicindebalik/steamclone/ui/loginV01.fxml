@@ -9,14 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steamclone.controller.LoginController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
          <children>
             <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true">
                <image>
-                  <Image url="@resim/loginbackimg.jpg" />
+                  <Image url="@../../../../../resources/com/balikicindebalik/steamclone/img/loginbackimg.jpg" />
                </image>
             </ImageView>
             <Pane layoutX="255.0" layoutY="47.0" prefHeight="489.0" prefWidth="390.0" style="-fx-border-color: rgba(255, 255, 255, .2); -fx-border-radius: 30px; -fx-background-color: rgba(114, 16, 185, .2);">
@@ -26,12 +25,12 @@
                         <Font name="Script MT Bold" size="58.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="34.0" layoutY="178.0" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="User" layoutX="34.0" layoutY="178.0" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="34.0" layoutY="276.0" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="Password" layoutX="34.0" layoutY="276.0" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>

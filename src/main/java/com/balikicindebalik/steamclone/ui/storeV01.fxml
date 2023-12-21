@@ -48,8 +48,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.fxmlll.store.storeV01Controller">
+<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steamclone.controller.StoreController">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -96,11 +95,7 @@
                               </HBox>
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/cs2/capsule_sm_120.jpg" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Counter-Strike 2" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="21.08.2012" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $00.00" textFill="#27861c" />
