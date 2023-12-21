@@ -8,6 +8,7 @@ module com.balikicindebalik.steamclone {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
+    requires java.persistence;
 
     opens com.balikicindebalik.steamclone to javafx.fxml;
     exports com.balikicindebalik.steamclone;

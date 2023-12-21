@@ -1,7 +1,10 @@
 package com.balikicindebalik.steamclone.entities;
+import javax.persistence.*;
 
 //@Entity
 //TODO ORM Annotations
+@Entity
+@Table(name="User")
 public class User {
     private int userID;
     private String userName;
