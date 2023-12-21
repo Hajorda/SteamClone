@@ -18,7 +18,9 @@ public class LoginController {
 
     @FXML
     void LoginAction(ActionEvent event) {
-
+        System.out.println("LoginAction");
+        System.out.println(User.getText());
+        System.out.println(Password.getText());
     }
 
 }
