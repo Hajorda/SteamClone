@@ -41,17 +41,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.GameAppController">
    <children>
       <ToolBar prefHeight="54.0" prefWidth="909.0" style="-fx-background-color: #00ffe5;">
          <items>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="100.0" text="STORE">
+            <Button fx:id="store_button" mnemonicParsing="false" onKeyTyped="#S" prefHeight="44.0" prefWidth="100.0" text="STORE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
             <Pane prefHeight="44.0" prefWidth="694.0" />
-            <Button fx:id="ProfileBtn" graphicTextGap="2.0" mnemonicParsing="false" text="Profile">
+            <Button fx:id="ProfileButton" graphicTextGap="2.0" mnemonicParsing="false" text="Profile">
                <font>
                   <Font size="20.0" />
                </font>
@@ -67,28 +67,28 @@
             </ImageView>
             <Pane layoutX="90.0" layoutY="58.0" prefHeight="430.0" prefWidth="720.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);">
                <children>
-                  <ImageView fitHeight="250.0" fitWidth="185.0" layoutX="49.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
+                  <ImageView fx:id="gamePicture" fitHeight="250.0" fitWidth="185.0" layoutX="49.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@dnmRSM/dnm.png" />
                      </image>
                   </ImageView>
                   <Pane layoutX="277.0" layoutY="39.0" prefHeight="353.0" prefWidth="409.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="48.0" layoutY="26.0" prefHeight="44.0" prefWidth="313.0" text="Counter-Strike 2" textFill="WHITE">
+                        <Label fx:id="game_title" alignment="CENTER" layoutX="48.0" layoutY="26.0" prefHeight="44.0" prefWidth="313.0" text="Counter-Strike 2" textFill="WHITE">
                            <font>
                               <Font name="Bookman Old Style" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="48.0" layoutY="80.0" prefHeight="203.0" prefWidth="313.0" text="About This Game This is Counter-Strike 2. A free upgrade to CS:GO, Counter-Strike 2 marks the largest technical leap in Counter-Strike's history. Built on the Source 2 engine, Counter-Strike 2 is modernized with realistic physically-based rendering, state of the art networking. Genre(s) : Tactical , First-person Shooter" textFill="#a19696" wrapText="true">
+                        <Label fx:id="gameDescription" layoutX="48.0" layoutY="80.0" prefHeight="203.0" prefWidth="313.0" text="About This Game This is Counter-Strike 2. A free upgrade to CS:GO, Counter-Strike 2 marks the largest technical leap in Counter-Strike's history. Built on the Source 2 engine, Counter-Strike 2 is modernized with realistic physically-based rendering, state of the art networking. Genre(s) : Tactical , First-person Shooter" textFill="#a19696" wrapText="true">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="214.0" layoutY="295.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: white;" text="BUY" />
-                        <Label layoutX="337.0" layoutY="295.0" prefHeight="34.0" prefWidth="49.0" text="\$00.00" textFill="WHITE" />
+                        <Button fx:id="buyButton" layoutX="214.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#buyAction" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: white;" text="BUY" />
+                        <Label fx:id="gamePrice" layoutX="337.0" layoutY="295.0" prefHeight="34.0" prefWidth="49.0" text="\$00.00" textFill="WHITE" />
                      </children>
                   </Pane>
-                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
                </children>
             </Pane>
          </children>

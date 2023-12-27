@@ -1,9 +1,10 @@
-package com.balikicindebalik.steamclone.ui.controller;
+package com.balikicindebalik.steamclone;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -25,10 +26,12 @@ public class LoginController {
     private TextField User;
 
     @FXML
-    void loginAction(MouseEvent event) {
-        System.out.println("Login button clicked");
-        System.out.println("Username: " + User.getText());
-        System.out.println("Password: " + Password.getText());
+    private Label warningLabel;
+
+    @FXML
+    void LoginAction(MouseEvent event) {
+        System.out.println(User.getText());
+        warningLabel.setText("Kullanıcı adı veya şifre yanlış");
     }
 
     @FXML
@@ -36,6 +39,7 @@ public class LoginController {
         assert LoginBtn != null : "fx:id=\"LoginBtn\" was not injected: check your FXML file 'loginV01.fxml'.";
         assert Password != null : "fx:id=\"Password\" was not injected: check your FXML file 'loginV01.fxml'.";
         assert User != null : "fx:id=\"User\" was not injected: check your FXML file 'loginV01.fxml'.";
+        assert warningLabel != null : "fx:id=\"warningLabel\" was not injected: check your FXML file 'loginV01.fxml'.";
 
     }
 

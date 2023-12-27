@@ -9,6 +9,7 @@ module com.balikicindebalik.steamclone {
     requires java.sql;
     requires org.xerial.sqlitejdbc;
     requires java.persistence;
+    requires charm.glisten;
 
     opens com.balikicindebalik.steamclone to javafx.fxml;
     exports com.balikicindebalik.steamclone;

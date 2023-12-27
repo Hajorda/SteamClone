@@ -20,6 +20,7 @@ public class Main {
 
         int random = (int) (Math.random() * 1000000);
 
+        //Burası s
         String query = "INSERT INTO User (UserID, UserName, Name, Surname,Email,Password) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = DBconnection.connect();

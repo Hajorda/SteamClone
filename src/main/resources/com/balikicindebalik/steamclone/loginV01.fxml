@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.HelloController">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.LoginController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -20,36 +20,41 @@
             </ImageView>
             <Pane layoutX="255.0" layoutY="47.0" prefHeight="489.0" prefWidth="390.0" style="-fx-border-color: rgba(255, 255, 255, .2); -fx-border-radius: 30px; -fx-background-color: rgba(114, 16, 185, .2);">
                <children>
-                  <Label alignment="CENTER" layoutX="112.0" layoutY="40.0" onMouseClicked="#loginAction" prefHeight="94.0" prefWidth="166.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="112.0" layoutY="40.0" prefHeight="94.0" prefWidth="166.0" text="Login" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Script MT Bold" size="58.0" />
                      </font>
                   </Label>
-                  <TextField id="User" fx:id="User" layoutX="34.0" layoutY="178.0" onMouseClicked="#loginAction" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="User" layoutX="34.0" layoutY="178.0" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>
                   </TextField>
-                  <TextField id="Password" fx:id="Password" layoutX="34.0" layoutY="276.0" onMouseClicked="#loginAction" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="Password" layoutX="34.0" layoutY="276.0" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>
                   </TextField>
-                  <Label alignment="CENTER" layoutX="307.0" layoutY="175.0" onMouseClicked="#loginAction" prefHeight="53.0" prefWidth="56.0" text="👤" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="307.0" layoutY="175.0" prefHeight="53.0" prefWidth="56.0" text="👤" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="307.0" layoutY="273.0" onMouseClicked="#loginAction" prefHeight="53.0" prefWidth="56.0" text="🔒" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="307.0" layoutY="273.0" prefHeight="53.0" prefWidth="56.0" text="🔒" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="LoginBtn" layoutX="72.0" layoutY="375.0" mnemonicParsing="false" opacity="0.85" prefHeight="47.0" prefWidth="247.0" style="-fx-background-color: white;" text="Login">
+                  <Button fx:id="LoginBtn" layoutX="72.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#LoginAction" opacity="0.85" prefHeight="47.0" prefWidth="247.0" style="-fx-background-color: white;" text="Login">
                      <font>
                         <Font name="Monotype Corsiva" size="27.0" />
                      </font>
                   </Button>
+                  <Label fx:id="warningLabel" alignment="CENTER" layoutX="21.0" layoutY="134.0" prefHeight="28.0" prefWidth="357.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
