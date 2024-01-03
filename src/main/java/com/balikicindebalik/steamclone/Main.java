@@ -1,5 +1,9 @@
 package com.balikicindebalik.steamclone;
 
+import com.balikicindebalik.steamclone.database.PasswordAuthentication;
+import com.balikicindebalik.steamclone.database.QueriesUtil;
+import com.balikicindebalik.steamclone.entities.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,13 +11,14 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("!");
-       // addUser("deneme", "deneme", "deneme", "deneme", 1234);
-        readUser();
-        System.out.println("123123");
-        findUser(963694);
 
-
+        User user = new User(1, "dali", "Ali", "Bolat", "hajorda", "123456");
+        QueriesUtil queriesUtil = new QueriesUtil();
+       // queriesUtil.addUser(user);
+        User a = queriesUtil.getUser("dali");
+        System.out.println(a.getName());
+        queriesUtil.removeUser(a);
+        System.out.println(queriesUtil.getUser("asdasd"));
     }
 
     public static int addUser(String nick, String firstName, String lastName, String email, int password) {

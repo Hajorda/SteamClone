@@ -1,25 +1,23 @@
 package com.balikicindebalik.steamclone.entities;
-import javax.persistence.*;
 
 //@Entity
 //TODO ORM Annotations
-@Entity
-@Table(name="User")
+
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="UserID")
+
     private int userID;
-    @Column(name="UserName")
+
     private String userName;
-    @Column(name="Name")
+
     private String name;
-    @Column(name="Surname")
+
     private String surname;
-    @Column(name="Email")
+
     private String email;
-    @Column(name="Password")
+
+
     private String password;
+
 
     public User(){
 
