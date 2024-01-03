@@ -15,9 +15,8 @@ public class Main {
         User user = new User(1, "dali", "Ali", "Bolat", "hajorda", "123456");
         QueriesUtil queriesUtil = new QueriesUtil();
        // queriesUtil.addUser(user);
-        User a = queriesUtil.getUser("dali");
-        System.out.println(a.getName());
-        queriesUtil.removeUser(a);
+
+        queriesUtil.addUser(user);
         System.out.println(queriesUtil.getUser("asdasd"));
     }
 

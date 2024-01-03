@@ -156,6 +156,15 @@ public class QueriesUtil implements Util {
         }
     }
 
+    public boolean checkUser(String name, String password) {
+       if( getUser(name) != null){
+           PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
+           return passwordAuthentication.authenticate(password,getUser(name).getPassword());
+       }
+       else
+              return false;
+    }
+
     @Override
     public void addGame(Game game) {
 

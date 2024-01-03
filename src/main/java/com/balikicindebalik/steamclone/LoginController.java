@@ -2,6 +2,8 @@ package com.balikicindebalik.steamclone;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.balikicindebalik.steamclone.database.QueriesUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,7 +32,13 @@ public class LoginController {
 
     @FXML
     void LoginAction(MouseEvent event) {
-        System.out.println(User.getText());
+        String username = User.getText();
+        String password = Password.getText();
+        QueriesUtil queriesUtil = new QueriesUtil();
+        if(queriesUtil.checkUser(username,password)){
+            System.out.println("Giriş başarılı");
+        }
+        else
         warningLabel.setText("Kullanıcı adı veya şifre yanlış");
     }
 
