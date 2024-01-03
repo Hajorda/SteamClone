@@ -134,11 +134,12 @@ public class QueriesUtil implements Util {
 
     @Override
     public void removeUser(User user) {
-        String query = "DELETE FROM User WHERE UserID = ?";
+        String query = "DELETE FROM User WHERE UserID = ? AND UserName = ?";
         try {
             Connection conn = DBconnection.connect();
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, user.getUserID());
+            ps.setString(2, user.getUserName());
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
