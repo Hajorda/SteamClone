@@ -40,7 +40,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -48,7 +47,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steamclone.controller.StoreController">
+<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.StoreController">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -104,11 +103,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/BalderGate3/capsule_sm_120.jpg" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Baldur's Gate 3" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="3.08.2023" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $34.99" textFill="#27861c" />
@@ -117,11 +112,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -130,11 +121,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -143,11 +130,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -156,11 +139,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -169,11 +148,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -182,11 +157,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -195,11 +166,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -208,11 +175,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -221,11 +184,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -234,11 +193,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
@@ -247,11 +202,7 @@
                               <Pane prefHeight="10.0" prefWidth="692.0" />
                               <HBox prefHeight="45.0" prefWidth="692.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../resim/120x45/demo/120x45.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fitHeight="45.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="Asd" textAlignment="CENTER" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="166.0" text="1.11.2011" />
                                     <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="209.0" text="PRİCE $11.00" textFill="#27861c" />
