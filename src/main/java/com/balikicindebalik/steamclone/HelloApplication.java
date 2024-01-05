@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("loginV01.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Hello!");
+        stage.setTitle("Game Store");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

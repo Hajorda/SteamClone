@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +21,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class StoreController {
@@ -39,6 +42,9 @@ public class StoreController {
 
     @FXML
     private TextField findGameField;
+
+    @FXML
+    private Pane sutun;
 
     @FXML
     private VBox vbox;
@@ -75,6 +81,18 @@ public class StoreController {
         vbox.getChildren().clear();
         for (Game game : searchedGameList) {
             vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
+            Pane p = new Pane();
+            p.setPrefHeight(10);
+            vbox.getChildren().add(p);
+        }
+
+        if(gameName.equals("")){ // yazı yoksa
+            for (Game game : gameList) { 
+            vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
+            Pane p = new Pane();
+            p.setPrefHeight(10);
+            vbox.getChildren().add(p);
+            }
         }
 
 
@@ -88,13 +106,23 @@ public class StoreController {
             hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
             hbox.setSpacing(10);
             hbox.setPadding(new javafx.geometry.Insets(10, 0, 10, 0));
-            hbox.setStyle("-fx-background-color: #FF12FF;");
+            hbox.setStyle("-fx-background-color:  #d7d7d7;");
             HBox.setMargin( hbox, new Insets(10, 0, 10, 0));
 
             Button gameButton = new Button(gameName);
-            Label gameNameLabel = new Label(gameName);
-            Label gamePriceLabel = new Label(gamePrice);
+            gameButton.setPrefWidth(120);
 
+            Label gameNameLabel = new Label(gameName);
+            gameNameLabel.setPrefWidth(190);
+            gameNameLabel.setAlignment(Pos.CENTER);
+
+            Pane pp = new Pane();
+            pp.setPrefWidth(166);
+            
+            Label gamePriceLabel = new Label(gamePrice);
+            gamePriceLabel.setPrefWidth(209);
+            gamePriceLabel.setAlignment(Pos.CENTER_RIGHT);
+            gamePriceLabel.setTextFill(Color.web("#27861c"));
 
 
             gameButton.setOnAction(e -> {
@@ -103,9 +131,10 @@ public class StoreController {
 
                 System.out.println("Game picture: " + gamePicture);
             });
-            hbox.getChildren().addAll(gameButton, gameNameLabel, gamePriceLabel);
+            hbox.getChildren().addAll(gameButton, gameNameLabel, pp, gamePriceLabel);
             return hbox;
         }
+
 
     @FXML
     void initialize() {
@@ -118,6 +147,11 @@ public class StoreController {
 
         for (Game game : gameList) {
             vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
+
+            Pane p = new Pane();
+            p.setPrefHeight(10);
+
+            vbox.getChildren().add(p);
         }
     }
 

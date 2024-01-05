@@ -47,7 +47,6 @@ public class LoginController {
     private Parent root;
 
 
-
     @FXML
     void LoginAction(MouseEvent event) throws IOException {
         String username = User.getText();
