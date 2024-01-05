@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.CardController">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
             <ToolBar prefHeight="54.0" prefWidth="909.0" style="-fx-background-color: #00ffe5;">
                <items>
-                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="100.0" text="STORE">
+                  <Button fx:id="StoreButton" mnemonicParsing="false" onAction="#GoStore" prefHeight="44.0" prefWidth="100.0" text="STORE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -30,7 +30,7 @@
             </ToolBar>
             <Pane prefHeight="555.0" prefWidth="900.0">
                <children>
-                  <VBox layoutX="69.0" layoutY="38.0" prefHeight="457.0" prefWidth="332.0" style="-fx-border-color: black;">
+                  <VBox fx:id="vBox" layoutX="69.0" layoutY="38.0" prefHeight="457.0" prefWidth="332.0" style="-fx-border-color: black;">
                      <children>
                         <HBox prefHeight="18.0" prefWidth="200.0" style="-fx-border-color: black;">
                            <children>
@@ -108,12 +108,12 @@
                   </VBox>
                   <Label alignment="CENTER" layoutX="69.0" layoutY="499.0" prefHeight="19.0" prefWidth="332.0" style="-fx-border-color: black; -fx-border-width: 3;" text="Total Pay 1000$" textFill="RED" />
                   <Label alignment="CENTER" layoutX="69.0" layoutY="524.0" prefHeight="17.0" prefWidth="332.0" text="(If you click one game you drop the card)" />
-                  <Button layoutX="524.0" layoutY="408.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="293.0" style="-fx-border-radius: 100px;" text="Purchase" textFill="#24942d">
+                  <Button fx:id="purchaseButton" layoutX="524.0" layoutY="408.0" mnemonicParsing="false" onAction="#purchaseButton" prefHeight="114.0" prefWidth="293.0" style="-fx-border-radius: 100px;" text="Purchase" textFill="#24942d">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Button>
-                  <Label alignment="CENTER" layoutX="736.0" layoutY="14.0" prefHeight="44.0" prefWidth="150.0" style="-fx-border-color: green; -fx-border-radius: 20px;" text="Balance 100$">
+                  <Label fx:id="balanceLabel" alignment="CENTER" layoutX="736.0" layoutY="14.0" prefHeight="44.0" prefWidth="150.0" style="-fx-border-color: green; -fx-border-radius: 20px;" text="Balance 100$">
                      <font>
                         <Font size="15.0" />
                      </font>
