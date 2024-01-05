@@ -13,15 +13,16 @@ import java.util.List;
 public class QueriesUtil implements Util {
 
     public void throwToBasket(Game game){
-        String query = "INSERT INTO Basket (BasketID, GameID, UserID) VALUES (?, ?, ?)";
+        System.out.println("query");
+        String query = "INSERT INTO Basket (GameID, UserID) VALUES (?, ?)";
         try {
             Connection conn = DBconnection.connect();
 
             PreparedStatement ps = conn.prepareStatement(query);
 
-            ps.setInt(1, Current.getBasketID());
-            ps.setInt(2, game.getGameID());
-            ps.setInt(3, Current.getCurrentUser().getUserID());
+
+            ps.setInt(1, game.getGameID());
+            ps.setInt(2, Current.getCurrentUser().getUserID());
             ps.executeUpdate();
             try {
                 conn.close();
@@ -34,6 +35,80 @@ public class QueriesUtil implements Util {
             System.out.println(e.getMessage() + "done");
         }
     }
+
+    public void deleteFromBasket(Game game) {
+        System.out.println("query");
+        String query = "DELETE FROM Basket WHERE GameID = ? AND UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, game.getGameID());
+            ps.setInt(2, Current.getCurrentUser().getUserID());
+            int rowsAffected = ps.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("User removed successfully");
+            } else {
+                System.out.println("User not found or could not be removed");
+            }
+
+            conn.close();
+            ps.close();
+
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+
+    }
+
+    public List<Game> getBasket(){
+        List<Game> gameList = new ArrayList<>();
+        String query = "SELECT * FROM Basket LEFT JOIN Game ON Basket.GameID = Game.GameID WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Game game = new Game(
+                        rs.getInt("GameID"),
+                        rs.getString("Name"),
+                        rs.getString("Description"),
+                        rs.getString("Price"),
+                        rs.getString("Date"),
+                        rs.getString("DeveloperID"),
+                        rs.getLong("Score")
+                );
+                gameList.add(game);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+        return gameList;
+    }
+    public void throwToBasket(Dlc dlc) throws SQLException {
+        System.out.println("query");
+        String query = "INSERT INTO Basket (DLC_ID, UserID) VALUES (?, ?)";
+        try {
+            Connection conn = DBconnection.connect();
+
+            PreparedStatement ps = conn.prepareStatement(query);
+        }
+        catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     @Override
     public void addUser(User user) {
         PasswordAuthentication passwordAuthentication = new PasswordAuthentication();

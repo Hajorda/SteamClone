@@ -57,6 +57,16 @@ public class LoginController {
         QueriesUtil queriesUtil = new QueriesUtil();
         if (queriesUtil.checkUser(username, password) || username.equalsIgnoreCase("admin")) {
 
+//            if (username.equalsIgnoreCase("admin")) {
+//                Current.setCurrentUser(queriesUtil.getUser("admin"));
+//                root = FXMLLoader.load(getClass().getResource("adminV01.fxml"));
+//                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                scene = new Scene(root);
+//                stage.setScene(scene);
+//                stage.show();
+//                return;
+//            }
+
             System.out.println("Access Granted! to " + username);
             Current.setCurrentUser(queriesUtil.getUser(username));
 
