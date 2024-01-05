@@ -1,10 +1,7 @@
 package com.balikicindebalik.steamclone.database;
 
 import com.balikicindebalik.steamclone.DBconnection;
-import com.balikicindebalik.steamclone.entities.Developer;
-import com.balikicindebalik.steamclone.entities.Dlc;
-import com.balikicindebalik.steamclone.entities.Game;
-import com.balikicindebalik.steamclone.entities.User;
+import com.balikicindebalik.steamclone.entities.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +12,28 @@ import java.util.List;
 
 public class QueriesUtil implements Util {
 
+    public void throwToBasket(Game game){
+        String query = "INSERT INTO Basket (BasketID, GameID, UserID) VALUES (?, ?, ?)";
+        try {
+            Connection conn = DBconnection.connect();
 
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, Current.getBasketID());
+            ps.setInt(2, game.getGameID());
+            ps.setInt(3, Current.getCurrentUser().getUserID());
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "done");
+        }
+    }
     @Override
     public void addUser(User user) {
         PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
@@ -222,6 +240,7 @@ public class QueriesUtil implements Util {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Game not found");
         return null;
     }
 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.balikicindebalik.steamclone.database.QueriesUtil;
+import com.balikicindebalik.steamclone.entities.Current;
 import com.balikicindebalik.steamclone.entities.Game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -100,9 +101,10 @@ public class StoreController {
 
     // Hbox generation
 
-        public HBox generateHBox(String gameName, String gamePrice, String gamePicture) {
+        public HBox generateHBox(String gameName, String gamePrice, String gamePicture,String gameID) {
 
             HBox hbox = new HBox();
+
             hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
             hbox.setSpacing(10);
             hbox.setPadding(new javafx.geometry.Insets(10, 0, 10, 0));
@@ -126,10 +128,27 @@ public class StoreController {
 
 
             gameButton.setOnAction(e -> {
+                System.out.println("button");
                 System.out.println("Game name: " + gameName);
                 System.out.println("Game price: " + gamePrice);
-
                 System.out.println("Game picture: " + gamePicture);
+
+                QueriesUtil queriesUtil = new QueriesUtil();
+                Game game = queriesUtil.getGame(gameName);
+
+                Current.setCurrentGame(game);
+                System.out.println("a");
+
+                try {
+                    root = FXMLLoader.load(getClass().getResource("GameAppV01.fxml"));
+                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
             });
             hbox.getChildren().addAll(gameButton, gameNameLabel, pp, gamePriceLabel);
             return hbox;

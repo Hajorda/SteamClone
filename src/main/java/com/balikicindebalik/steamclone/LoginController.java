@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 import com.balikicindebalik.steamclone.database.QueriesUtil;
 
+import com.balikicindebalik.steamclone.entities.Current;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,7 +55,9 @@ public class LoginController {
 
         QueriesUtil queriesUtil = new QueriesUtil();
         if (queriesUtil.checkUser(username, password) || username.equalsIgnoreCase("admin")) {
-            System.out.println("Giriş başarılı");
+
+            System.out.println("Access Granted! to " + username);
+            Current.setCurrentUser(queriesUtil.getUser(username));
 
             root = FXMLLoader.load(getClass().getResource("storeV01.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -63,9 +66,10 @@ public class LoginController {
             stage.show();
 
         } else {
-            warningLabel.setText("Kullanıcı adı veya şifre yanlış");
+            warningLabel.setText("Wrong username or password");
             warningLabel.setOpacity(1.0);
-            System.out.println("Kullanıcı adı veya şifre yanlış");
+            System.out.println("Access Denied! to " + username + " with password " + password + "");
+
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
