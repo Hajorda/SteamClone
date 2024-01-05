@@ -101,7 +101,7 @@ public class StoreController {
 
     // Hbox generation
 
-        public HBox generateHBox(String gameName, String gamePrice, String gamePicture,String gameID) {
+        public HBox generateHBox(String gameName, String gamePrice, String gamePicture) {
 
             HBox hbox = new HBox();
 
