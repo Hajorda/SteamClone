@@ -45,13 +45,18 @@
    <children>
       <ToolBar prefHeight="54.0" prefWidth="909.0" style="-fx-background-color: #00ffe5;">
          <items>
-            <Button fx:id="store_button" mnemonicParsing="false" onKeyTyped="#S" onMouseClicked="#GoStore" prefHeight="44.0" prefWidth="100.0" text="STORE">
+            <Button fx:id="store_button" mnemonicParsing="false" onAction="#GoStore" prefHeight="44.0" prefWidth="100.0" text="STORE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Pane prefHeight="44.0" prefWidth="694.0" />
-            <Button fx:id="ProfileButton" graphicTextGap="2.0" mnemonicParsing="false" onMouseClicked="#GoProfile" text="Profile">
+            <Pane prefHeight="44.0" prefWidth="643.0" />
+            <Button graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoCard" prefHeight="44.0" prefWidth="50.0" text="🛒">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="ProfileButton" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoProfile" text="Profile">
                <font>
                   <Font size="20.0" />
                </font>
@@ -62,12 +67,12 @@
          <children>
             <ImageView fitHeight="546.0" fitWidth="900.0" pickOnBounds="true" style="-fx-opacity: 0.6;">
                <image>
-                  <Image url="@resim/1280x720-retrowave-sunrise-4k_1551646250.jpg" />
+                  <Image url="@img/1280x720-retrowave-sunrise-4k_1551646250.jpg" />
                </image>
             </ImageView>
             <Pane layoutX="90.0" layoutY="58.0" prefHeight="430.0" prefWidth="720.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);">
                <children>
-                  <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
+                  <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" visible="false" />
                   <ImageView fx:id="gamePicture" fitHeight="250.0" fitWidth="185.0" layoutX="49.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
                   <Pane layoutX="277.0" layoutY="39.0" prefHeight="353.0" prefWidth="409.0">
                      <children>

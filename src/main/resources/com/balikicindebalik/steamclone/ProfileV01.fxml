@@ -53,7 +53,12 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Pane prefHeight="44.0" prefWidth="694.0" />
+                  <Pane prefHeight="44.0" prefWidth="643.0" />
+                  <Button graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoCard" prefHeight="44.0" prefWidth="50.0" text="🛒">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
                   <Button fx:id="ProfileBtn" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoProfile" text="Profile">
                      <font>
                         <Font size="20.0" />
@@ -63,11 +68,28 @@
             </ToolBar>
             <TabPane prefHeight="549.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
+                  <Tab text="Profile Info">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="210.0" layoutY="110.0" prefHeight="280.0" prefWidth="480.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="70.0" prefWidth="532.0" style="-fx-border-color: black;" text="Name : asd" />
+                                    <Label alignment="CENTER" prefHeight="70.0" prefWidth="490.0" style="-fx-border-color: black;" text="Surname : asd" />
+                                    <Label alignment="CENTER" prefHeight="70.0" prefWidth="508.0" style="-fx-border-color: black;" text="User Name : Asd" />
+                                    <Label alignment="CENTER" prefHeight="70.0" prefWidth="484.0" style="-fx-border-color: black;" text="Email : a" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="adminBtn" layoutX="728.0" layoutY="429.0" mnemonicParsing="false" onAction="#adminBtnAction" prefHeight="74.0" prefWidth="158.0" style="-fx-background-color: red; -fx-opacity: 0.5;" text="Admin Btn" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
                 <Tab text="My Games">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <VBox layoutX="135.0" layoutY="14.0" prefHeight="496.0" prefWidth="631.0">
+                              <VBox layoutX="14.0" layoutY="16.0" prefHeight="485.0" prefWidth="532.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
                                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
@@ -85,6 +107,7 @@
                                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
                                  </children>
                               </VBox>
+                              <Label alignment="CENTER" layoutX="708.0" layoutY="459.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Game = 10" />
                            </children>
                         </AnchorPane>
                      </content></Tab>

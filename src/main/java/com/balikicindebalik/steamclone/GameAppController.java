@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 public class GameAppController {
 
-    @FXML
+       @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -63,8 +63,19 @@ public class GameAppController {
     private Scene scene;
     private Parent root;
 
+     @FXML
+    void GoCard(ActionEvent event) throws Exception {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cardV01.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
     @FXML
-    void GoProfile(MouseEvent event) throws Exception {
+    void GoProfile(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ProfileV01.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -73,8 +84,9 @@ public class GameAppController {
         stage.show();
 
     }
-    @FXML
-    void GoStore(MouseEvent event) throws Exception {
+     @FXML
+    void GoStore(ActionEvent event) throws Exception {
+
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("storeV01.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 public class StoreController {
 
     @FXML
+    private Button cardbtn;
+
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -58,6 +61,17 @@ public class StoreController {
     void GoProfile(ActionEvent event) throws Exception {
 
                 root = FXMLLoader.load(getClass().getResource("ProfileV01.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+    }
+
+     @FXML
+    void GoCard(ActionEvent event) throws Exception {
+
+                root = FXMLLoader.load(getClass().getResource("cardV01.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);

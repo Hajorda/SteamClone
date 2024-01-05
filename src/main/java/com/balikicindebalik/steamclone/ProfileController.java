@@ -29,9 +29,23 @@ public class ProfileController {
     @FXML
     private AnchorPane rootPane;
 
+    @FXML
+    private Button adminBtn;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+     @FXML
+    void GoCard(ActionEvent event) throws Exception {
+
+                root = FXMLLoader.load(getClass().getResource("cardV01.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+    }
 
     @FXML
     void GoProfile(ActionEvent event) {
@@ -49,10 +63,18 @@ public class ProfileController {
 
     }
 
+     @FXML
+    void adminBtnAction(ActionEvent event) {
+
+    }
+
+
     @FXML
     void initialize() {
+
         assert ProfileBtn != null : "fx:id=\"ProfileBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert StoreBtn != null : "fx:id=\"StoreBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert adminBtn != null : "fx:id=\"adminBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert rootPane != null : "fx:id=\"rootPane\" was not injected: check your FXML file 'ProfileV01.fxml'.";
 
     }

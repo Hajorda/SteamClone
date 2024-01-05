@@ -56,8 +56,13 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Pane prefHeight="44.0" prefWidth="694.0" />
-                  <Button fx:id="ProfileBtn" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoProfile" text="Profile">
+                  <Pane prefHeight="44.0" prefWidth="643.0" />
+                  <Button graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoCard" prefHeight="44.0" prefWidth="50.0" text="🛒">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ProfileBtn1" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoProfile" text="Profile">
                      <font>
                         <Font size="20.0" />
                      </font>
