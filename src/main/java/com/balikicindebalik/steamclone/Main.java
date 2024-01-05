@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
+//addGames();
 
 
 
@@ -27,7 +27,7 @@ public class Main {
         Game game7 = new Game(7, "Half-Life", "Named Game of the Year by over 50 publications, Valve's debut title blends action and adventure with award-winning technology to create a frighteningly realistic world where players must think to survive.", "₺ 24,00", "8 Nov, 1998", "Valve");
         Game game8 = new Game(8, "Counter-Strike: Source", "THE NEXT INSTALLMENT OF THE WORLD'S # 1 ONLINE ACTION GAME Counter-Strike: Source blends Counter-Strike's award-winning teamplay action with the advanced technology of Source™ technology.", "₺ 24,00", "1 Nov, 2004", "Valve");
         QueriesUtil queriesUtil = new QueriesUtil();
-
+        queriesUtil.addGame(game1);
         queriesUtil.addGame(game2);
         queriesUtil.addGame(game3);
         queriesUtil.addGame(game4);
