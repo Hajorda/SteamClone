@@ -157,32 +157,104 @@ public class QueriesUtil implements Util {
     }
 
     public boolean checkUser(String name, String password) {
-       if( getUser(name) != null){
-           PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
-           return passwordAuthentication.authenticate(password,getUser(name).getPassword());
-       }
-       else
-              return false;
+        if (getUser(name) != null) {
+            PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
+            return passwordAuthentication.authenticate(password, getUser(name).getPassword());
+        } else
+            return false;
     }
 
     @Override
     public void addGame(Game game) {
+        int random = (int) (Math.random() * 1000000);
+        String query = "INSERT INTO Game (GameID, Name, Description, Price, Date, DeveloperID,Score) VALUES (?, ?, ?, ?, ?, ?,?)";
+        try {
+            Connection conn = DBconnection.connect();
 
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, random);
+            ps.setString(2, game.getGameName());
+            ps.setString(3, game.getDescription());
+            ps.setString(4, game.getGamePrice());
+            ps.setString(5, game.getGameReleaseDate());
+            ps.setString(6, game.getMadeBy());
+            ps.setLong(7, game.getScore());
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "done");
+        }
     }
 
     @Override
     public void addGames(List<Game> gameList) {
-
+        for (Game game : gameList) {
+            addGame(game);
+        }
     }
 
     @Override
     public Game getGame(String name) {
+        String query = "Select * from Game WHERE Name = ?";
+        try {
+
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            int count = 0;
+
+            if (rs.next()) {
+                Game tGame = new Game(rs.getInt("GameID"), rs.getString("Name"), rs.getString("Description"), rs.getString("Price"), rs.getString("Date"), rs.getString("DeveloperID"), rs.getLong("Score"));
+                conn.close();
+                rs.close();
+                ps.close();
+
+                return tGame;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 
     @Override
     public List<Game> getGames() {
-        return null;
+        List<Game> gameList = new ArrayList<>();
+        String query = "SELECT * FROM Game";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Game game = new Game(
+                        rs.getInt("GameID"),
+                        rs.getString("Name"),
+                        rs.getString("Description"),
+                        rs.getString("Price"),
+                        rs.getString("Date"),
+                        rs.getString("DeveloperID"),
+                        rs.getLong("Score")
+                );
+                gameList.add(game);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+        return gameList;
     }
 
     @Override

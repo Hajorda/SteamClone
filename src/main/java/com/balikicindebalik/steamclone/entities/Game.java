@@ -13,6 +13,30 @@ public class Game {
 
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMadeBy() {
+        return madeBy;
+    }
+
+    public void setMadeBy(String madeBy) {
+        this.madeBy = madeBy;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
+    }
+
     public Game(int gameID, String gameName, String description, String gamePrice, String gameReleaseDate, String madeBy) {
         this.gameID = gameID;
         this.gameName = gameName;
