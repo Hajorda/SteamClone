@@ -1,6 +1,7 @@
 package com.balikicindebalik.steamclone;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -15,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -35,6 +38,9 @@ public class StoreController {
     private AnchorPane rootPane;
 
     @FXML
+    private TextField findGameField;
+
+    @FXML
     private VBox vbox;
 
     private Stage stage;
@@ -52,6 +58,27 @@ public class StoreController {
 
     }
 
+
+    //Searcing game boku yedik
+    @FXML
+    void gameSearchButton(MouseEvent event) {
+        String gameName = findGameField.getText();
+        System.out.println(gameName);
+        QueriesUtil queriesUtil = new QueriesUtil();
+        List<Game> gameList = queriesUtil.getGames();
+        List<Game> searchedGameList = new ArrayList<>();
+        for (Game game : gameList) {
+            if (game.getGameName().equalsIgnoreCase(gameName)) {
+               searchedGameList.add(game);
+            }
+        }
+        vbox.getChildren().clear();
+        for (Game game : searchedGameList) {
+            vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
+        }
+
+
+    }
 
     // Hbox generation
 
