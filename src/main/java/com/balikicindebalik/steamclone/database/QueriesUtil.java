@@ -65,9 +65,33 @@ public class QueriesUtil implements Util {
 
     }
 
+    public int numberOfItemsInBasket() {
+        String query = "SELECT COUNT(*) FROM Basket WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            int count = 0;
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return count;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return  -1;
+
+    }
     public List<Game> getBasket(){
         List<Game> gameList = new ArrayList<>();
-        String query = "SELECT * FROM Basket LEFT JOIN Game ON Basket.GameID = Game.GameID WHERE UserID = ?";
+        String query = "SELECT * FROM Basket LEFT JOIN Game ON Basket.GameID = Game.GameID WHERE UserID = ? ORDER BY Date DESC";
         try {
             Connection conn = DBconnection.connect();
             PreparedStatement ps = conn.prepareStatement(query);

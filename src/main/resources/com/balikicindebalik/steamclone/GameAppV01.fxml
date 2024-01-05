@@ -50,8 +50,8 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Pane prefHeight="44.0" prefWidth="643.0" />
-            <Button graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoCard" prefHeight="44.0" prefWidth="50.0" text="🛒">
+            <Pane prefHeight="44.0" prefWidth="623.0" />
+            <Button fx:id="cardLabel" graphicTextGap="2.0" mnemonicParsing="false" onAction="#GoCard" prefHeight="44.0" prefWidth="64.0" text="🛒">
                <font>
                   <Font size="20.0" />
                </font>
@@ -86,8 +86,13 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buyButton" layoutX="214.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#buyAction" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: white;" text="BUY" />
+                        <Button fx:id="buyButton" layoutX="214.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#buyAction" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: white;" text="add To Basket" />
                         <Label fx:id="gamePrice" layoutX="337.0" layoutY="295.0" prefHeight="34.0" prefWidth="49.0" text="\$00.00" textFill="WHITE" />
+                        <Label fx:id="warningLabel" layoutX="204.0" layoutY="264.0" opacity="0.0" text="Added to basket" textAlignment="CENTER" textFill="#f55151">
+                           <font>
+                              <Font name="New Peninim MT" size="19.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                </children>

@@ -48,6 +48,9 @@ public class StoreController {
     private TextField findGameField;
 
     @FXML
+    private Button cardLabel;
+
+    @FXML
     private Pane sutun;
 
     @FXML
@@ -186,6 +189,8 @@ public class StoreController {
 
             vbox.getChildren().add(p);
         }
+
+        cardLabel.setText(cardLabel.getText() + " "+ queriesUtil.getBasket().size());
     }
 
 }

@@ -22,9 +22,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.naming.ldap.PagedResultsControl;
+
 public class GameAppController {
 
-       @FXML
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -55,6 +57,12 @@ public class GameAppController {
     private Button store_button;
 
     @FXML
+    private Button cardLabel;
+
+    @FXML
+    private Label warningLabel;
+
+    @FXML
     void S(KeyEvent event) {
 
     }
@@ -63,11 +71,11 @@ public class GameAppController {
     private Scene scene;
     private Parent root;
 
-     @FXML
+    @FXML
     void GoCard(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cardV01.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -78,13 +86,14 @@ public class GameAppController {
     void GoProfile(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ProfileV01.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
-     @FXML
+
+    @FXML
     void GoStore(ActionEvent event) throws Exception {
 
 
@@ -95,11 +104,15 @@ public class GameAppController {
         stage.show();
 
     }
+
     @FXML
     void buyAction(MouseEvent event) {
         System.out.println("buying game");
         QueriesUtil queriesUtil = new QueriesUtil();
         queriesUtil.throwToBasket(Current.getCurrentGame());
+        cardLabel.setText(cardLabel.getText().substring(0,1) + queriesUtil.getBasket().size());
+        warningLabel.setText("Game added to basket");
+        warningLabel.setOpacity(1.0);
     }
 
     @FXML
@@ -114,7 +127,6 @@ public class GameAppController {
         assert store_button != null : "fx:id=\"store_button\" was not injected: check your FXML file 'GameAppV01.fxml'.";
 
 
-
         Game game = Current.getCurrentGame();
 
         game_title.setText(game.getGameName());
@@ -127,22 +139,22 @@ public class GameAppController {
             gamePicture.setSmooth(true);
             gamePicture.setCache(true);
             gamePicture.setImage(image);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("image not found");
-            try{
+            try {
 
                 Image image = new Image(Objects.requireNonNull(getClass().getResource("source.jpeg")).toExternalForm());
                 gamePicture.setPreserveRatio(true);
                 gamePicture.setSmooth(true);
                 gamePicture.setCache(true);
                 gamePicture.setImage(image);
-            }
-            catch (Exception exception){
+            } catch (Exception exception) {
                 System.out.println("!Source image not found");
-        }
+            }
         }
 
+        QueriesUtil queriesUtil = new QueriesUtil();
+        cardLabel.setText(cardLabel.getText() + " " + queriesUtil.getBasket().size());
         //gamePicture.setImage(new Image(Objects.requireNonNull(getClass().getResource( game.getGameName() + ".jpg")).toExternalForm()));
 
     }
