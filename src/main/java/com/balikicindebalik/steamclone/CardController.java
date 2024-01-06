@@ -55,6 +55,9 @@ public class CardController {
     @FXML
     private ScrollPane SP;
 
+    @FXML
+    private Label warningLabel;
+
     private double totalPrice = 0;
 
     private Stage stage;
@@ -85,9 +88,10 @@ public class CardController {
 
     @FXML
     void purchaseButton(ActionEvent event) {
+        QueriesUtil queriesUtil = new QueriesUtil();
+        if (totalPrice <= queriesUtil.getBalanceOfUser()){
 
-        if (true){
-            QueriesUtil queriesUtil = new QueriesUtil();
+            queriesUtil.setBalanceOfUser(queriesUtil.getBalanceOfUser() - totalPrice);
             System.out.println(queriesUtil.getBalanceOfUser() + " and "+ totalPrice);
             for (Game game : queriesUtil.getBasket()) {
                 queriesUtil.addGameToInventory(game);
@@ -103,6 +107,11 @@ public class CardController {
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
+        }
+        else{
+            System.out.println("Not enough money");
+            warningLabel.setOpacity(1.0);
+            warningLabel.setText("Not enough money LOSER");
         }
 
     }
@@ -190,10 +199,10 @@ public class CardController {
         assert rootPane != null : "fx:id=\"rootPane\" was not injected: check your FXML file 'cardV01.fxml'.";
         assert vBox != null : "fx:id=\"vBox\" was not injected: check your FXML file 'cardV01.fxml'.";
 
-        balanceLabel.setText("Balance:" + 31.5 + " TL");
         //vBox.getChildren().add(generateGameTile(Current.getCurrentGame()));
 
         QueriesUtil queriesUtil = new QueriesUtil();
+        balanceLabel.setText("Balance:" + queriesUtil.getBalanceOfUser()+ " TL");
         List<Game> gameList = queriesUtil.getBasket();
         for (Game game : gameList) {
             System.out.println(game.getGameName());

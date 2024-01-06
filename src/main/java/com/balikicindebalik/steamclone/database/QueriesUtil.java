@@ -122,6 +122,33 @@ public class QueriesUtil implements Util {
         return gameList;
     }
 
+    public boolean chechGameInBasket(Game game){
+        String query = "SELECT * FROM Basket WHERE UserID = ? AND GameID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ps.setInt(2, game.getGameID());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                conn.close();
+                rs.close();
+                ps.close();
+                return true;
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return false;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return false;
+    }
+
     public void throwToBasket(Dlc dlc) throws SQLException {
         System.out.println("query");
         String query = "INSERT INTO Basket (DLC_ID, UserID) VALUES (?, ?)";
@@ -343,6 +370,8 @@ public class QueriesUtil implements Util {
         }
     }
 
+
+
     @Override
     public Game getGame(String name) {
         String query = "Select * from Game WHERE Name = ?";
@@ -351,6 +380,31 @@ public class QueriesUtil implements Util {
             Connection conn = DBconnection.connect();
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            int count = 0;
+
+            if (rs.next()) {
+                Game tGame = new Game(rs.getInt("GameID"), rs.getString("Name"), rs.getString("Description"), rs.getString("Price"), rs.getString("Date"), rs.getString("DeveloperID"), rs.getLong("Score"));
+                conn.close();
+                rs.close();
+                ps.close();
+
+                return tGame;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Game not found");
+        return null;
+    }
+
+    public Game getGameById(int id){
+        String query = "Select * from Game WHERE GameID = ?";
+        try {
+
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             int count = 0;
 
@@ -513,6 +567,33 @@ public class QueriesUtil implements Util {
         return gameList;
     }
 
+    public boolean checkGameInventory(Game game){
+        String query = "SELECT * FROM Inventory WHERE UserID = ? AND GameID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ps.setInt(2, game.getGameID());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                conn.close();
+                rs.close();
+                ps.close();
+                return true;
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return false;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return false;
+    }
+
     public int numberOfItemsInInventory(){
         String query = "SELECT COUNT(*) FROM Inventory WHERE UserID = ?";
         try {
@@ -535,5 +616,87 @@ public class QueriesUtil implements Util {
         }
         System.out.println("Counting patladı");
         return -1;
+    }
+
+    public double avaragePriceOfGamesInInventory(){
+        String query = "SELECT AVG(AddedPrice) FROM Inventory WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            double count = 0;
+            while (rs.next()) {
+                count = rs.getDouble(1);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return count;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return -1;
+    }
+
+    public void setBalanceOfUser(double v) {
+        //Check v is a positive number
+
+
+        String query = "UPDATE User SET balance = ? WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setDouble(1, v);
+            ps.setInt(2, Current.getCurrentUser().getUserID());
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //Write using MAX() querie
+    public Game maxPriceGameInInventory() {
+        String query = "SELECT max(AddedPrice), Game.GameID FROM Inventory LEFT JOIN Game ON Inventory.GameID = Game.GameID WHERE UserID = ? AND Game.GameID IS NOT NULL ORDER BY AddedPrice DESC LIMIT 1";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Game a = getGameById(Integer.parseInt(rs.getString("GameID"))
+
+
+                );
+                conn.close();
+                rs.close();
+                ps.close();
+                return a;
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return null;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return null;
+
     }
 }

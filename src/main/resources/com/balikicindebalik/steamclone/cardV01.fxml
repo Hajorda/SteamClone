@@ -51,6 +51,11 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
+                  <Label fx:id="warningLabel" layoutX="521.0" layoutY="373.0" prefHeight="32.0" prefWidth="293.0" textAlignment="CENTER" textFill="#d35d5d">
+                     <font>
+                        <Font name="SignPainter-HouseScript Semibold" size="30.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

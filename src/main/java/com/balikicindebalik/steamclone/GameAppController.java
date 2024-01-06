@@ -107,13 +107,36 @@ public class GameAppController {
 
     @FXML
     void buyAction(MouseEvent event) {
+        warningLabel.setOpacity(0.0);
         System.out.println("buying game");
         QueriesUtil queriesUtil = new QueriesUtil();
-        queriesUtil.throwToBasket(Current.getCurrentGame());
-        //cardLabel.setText(cardLabel.getText().substring(0,1) + queriesUtil.getBasket().size());
-        cardLabel.setText("🛒" + " " + queriesUtil.getBasket().size());
-        warningLabel.setText("Game added to basket");
-        warningLabel.setOpacity(1.0);
+
+          if(queriesUtil.checkGameInventory(Current.getCurrentGame())){
+            System.out.println("3");
+            warningLabel.setText("Game already in inventory");
+            warningLabel.setOpacity(1.0);
+        }
+        else if (queriesUtil.chechGameInBasket(Current.getCurrentGame())) {
+            System.out.println("1");
+            warningLabel.setText("Game already in basket");
+            warningLabel.setOpacity(1.0);
+            return;
+        }
+        else if (!queriesUtil.chechGameInBasket(Current.getCurrentGame())){
+            System.out.println("2");
+            queriesUtil.throwToBasket(Current.getCurrentGame());
+            //cardLabel.setText(cardLabel.getText().substring(0,1) + queriesUtil.getBasket().size());
+            cardLabel.setText("🛒" + " " + queriesUtil.getBasket().size());
+            warningLabel.setText("Game added to basket");
+            warningLabel.setOpacity(1.0);
+        }
+
+        else{
+            System.out.println("4");
+            warningLabel.setText("ZORT");
+            warningLabel.setOpacity(1.0);
+        }
+        System.out.println("3");
     }
 
     @FXML

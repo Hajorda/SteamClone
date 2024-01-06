@@ -14,6 +14,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -25,12 +27,6 @@ import javafx.scene.control.Label;
 public class ProfileController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Button ProfileBtn;
 
     @FXML
@@ -38,6 +34,9 @@ public class ProfileController {
 
     @FXML
     private Button adminBtn;
+
+    @FXML
+    private Label avarageTotalPrice;
 
     @FXML
     private Button cardLabel;
@@ -52,6 +51,9 @@ public class ProfileController {
     private VBox gamesVbox;
 
     @FXML
+    private Label maxPriceGame;
+
+    @FXML
     private Label nameLabel;
 
     @FXML
@@ -59,6 +61,9 @@ public class ProfileController {
 
     @FXML
     private Label surnameLabel;
+
+    @FXML
+    private Label totalGame;
 
     @FXML
     private Label usernameLabel;
@@ -111,6 +116,36 @@ public class ProfileController {
             }
     }
 
+    @FXML
+    void maxToMin(ActionEvent event) {
+
+        gamesVbox.getChildren().clear();
+        QueriesUtil queriesUtil = new QueriesUtil();
+        for (Game game : queriesUtil.getInventory()) {
+            gamesVbox.getChildren().add(generateGameTile(game));
+        }
+
+    }
+
+    @FXML
+    void minToMax(ActionEvent event) {
+
+        gamesVbox.getChildren().clear();
+        QueriesUtil queriesUtil = new QueriesUtil();
+        for (Game game : queriesUtil.getInventory()) {
+            gamesVbox.getChildren().add(generateGameTile(game));
+        }
+
+    }
+
+    @FXML
+    void FindGameListen(KeyEvent event) {
+
+    }
+    @FXML
+    void gameSearchButton(MouseEvent event) {
+
+    }
 
     @FXML
     void initialize() {
@@ -136,6 +171,11 @@ public class ProfileController {
 
         addGamesToVbox();
 
+        totalGame.setText("Total Game: " + queriesUtil.numberOfItemsInInventory());
+
+        avarageTotalPrice.setText("Avarage Price: " + queriesUtil.avaragePriceOfGamesInInventory());
+
+        maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
     }
 
     //Add games to from inventory

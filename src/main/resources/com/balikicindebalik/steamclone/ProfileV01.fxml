@@ -105,23 +105,15 @@
                            <children>
                               <VBox fx:id="gamesVbox" layoutX="14.0" layoutY="51.0" prefHeight="450.0" prefWidth="532.0" style="-fx-background-color: #d7d7d7;">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="532.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
                                     <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
                                  </children>
                               </VBox>
-                              <Label alignment="CENTER" layoutX="708.0" layoutY="459.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Game = 10" />
+                              <Label fx:id="totalGame" alignment="CENTER" layoutX="708.0" layoutY="459.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Game = 10" />
                               <Label alignment="CENTER" layoutX="708.0" layoutY="407.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Price =" />
-                              <Label alignment="CENTER" layoutX="708.0" layoutY="350.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Avg Total Price =" />
-                              <Label alignment="CENTER" layoutX="708.0" layoutY="296.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Max Game Price =" />
-                              <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Max to Min" />
-                              <Button layoutX="103.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Min to Max" />
+                              <Label fx:id="avarageTotalPrice" alignment="CENTER" layoutX="708.0" layoutY="350.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Avg Total Price =" />
+                              <Label fx:id="maxPriceGame" alignment="CENTER" layoutX="708.0" layoutY="296.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Max Game Price =" />
+                              <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#maxToMin" prefHeight="25.0" prefWidth="82.0" text="Max to Min" />
+                              <Button layoutX="103.0" layoutY="17.0" mnemonicParsing="false" onAction="#minToMax" prefHeight="25.0" prefWidth="82.0" text="Min to Max" />
                            </children>
                         </AnchorPane>
                      </content></Tab>
