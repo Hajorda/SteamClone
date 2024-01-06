@@ -68,6 +68,9 @@ public class ProfileController {
     @FXML
     private Label usernameLabel;
 
+    @FXML
+    private Label totalPrice;
+
 
     private Stage stage;
     private Scene scene;
@@ -176,7 +179,10 @@ public class ProfileController {
         avarageTotalPrice.setText("Avarage Price: " + queriesUtil.avaragePriceOfGamesInInventory());
 
         maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
-    }
+
+        System.out.println(queriesUtil.totalPriceOfGameInInventory());
+        totalPrice.setText("Total Price: " + queriesUtil.totalPriceOfGameInInventory());
+     }
 
     //Add games to from inventory
     public HBox generateGameTile(Game game){

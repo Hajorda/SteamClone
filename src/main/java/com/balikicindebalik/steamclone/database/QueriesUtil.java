@@ -619,7 +619,8 @@ public class QueriesUtil implements Util {
     }
 
     public double avaragePriceOfGamesInInventory(){
-        String query = "SELECT AVG(AddedPrice) FROM Inventory WHERE UserID = ?";
+        //Bu query Fırat hoca için özel yazılmıştır Ultra casting avarage substring kombosu kullanılmıştır.
+        String query = "SELECT AVG(CAST(substring(AddedPrice,2) AS INT)) AS 'AVG' FROM Inventory WHERE UserID = ? AND AddedPrice IS NOT 'Free' GROUP BY UserID;;";
         try {
             Connection conn = DBconnection.connect();
             PreparedStatement ps = conn.prepareStatement(query);
@@ -628,7 +629,31 @@ public class QueriesUtil implements Util {
 
             double count = 0;
             while (rs.next()) {
-                count = rs.getDouble(1);
+                count = rs.getInt(1);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return count;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return -1;
+    }
+
+    public double totalPriceOfGameInInventory(){
+        String query = "SELECT SUM(CAST(substring(AddedPrice,2) AS INT)) AS 'SUM' FROM Inventory WHERE UserID = ? AND AddedPrice IS NOT 'Free' GROUP BY UserID;;";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            double count = 0;
+            while (rs.next()) {
+                count = rs.getInt(1);
             }
 
             conn.close();
