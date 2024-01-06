@@ -88,11 +88,13 @@ public class CardController {
         HBox hBox = new HBox();
         Button gamebutton = new Button(game.getGameName());
         gamebutton.setPrefWidth(209);
+        gamebutton.setPrefHeight(30);
 
         Button deleteButton = new Button("X");
         deleteButton.setStyle("-fx-background-color: #FFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #94949a; -fx-border-width: 2px;");
         deleteButton.setPrefWidth(100);
         deleteButton.setPrefHeight(30);
+        deleteButton.setStyle("-fx-background-color: rgba(255, 99, 71, 0.8)");
         deleteButton.setPadding(new javafx.geometry.Insets(0, 0, 0, 0));
 
         Label gameprice = new Label(game.getGamePrice());

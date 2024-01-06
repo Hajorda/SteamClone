@@ -110,7 +110,8 @@ public class GameAppController {
         System.out.println("buying game");
         QueriesUtil queriesUtil = new QueriesUtil();
         queriesUtil.throwToBasket(Current.getCurrentGame());
-        cardLabel.setText(cardLabel.getText().substring(0,1) + queriesUtil.getBasket().size());
+        //cardLabel.setText(cardLabel.getText().substring(0,1) + queriesUtil.getBasket().size());
+        cardLabel.setText("🛒" + " " + queriesUtil.getBasket().size());
         warningLabel.setText("Game added to basket");
         warningLabel.setOpacity(1.0);
     }

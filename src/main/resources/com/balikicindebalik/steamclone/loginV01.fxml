@@ -25,12 +25,12 @@
                         <Font name="Script MT Bold" size="58.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="User" layoutX="34.0" layoutY="178.0" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="User" layoutX="34.0" layoutY="178.0" onKeyPressed="#KeyPress" prefHeight="47.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px; -fx-text-fill: white;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="Password" layoutX="34.0" layoutY="276.0" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px;">
+                  <TextField fx:id="Password" layoutX="34.0" layoutY="276.0" onKeyPressed="#KeyPress" prefHeight="47.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: no; -fx-border-color: white; -fx-border-radius: 15px; -fx-text-fill: white;">
                      <font>
                         <Font name="Serif Bold" size="21.0" />
                      </font>

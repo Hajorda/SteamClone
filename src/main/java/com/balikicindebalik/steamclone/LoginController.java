@@ -10,6 +10,8 @@ import java.util.TimerTask;
 import com.balikicindebalik.steamclone.database.QueriesUtil;
 
 import com.balikicindebalik.steamclone.entities.Current;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,7 +52,7 @@ public class LoginController {
 
 
     @FXML
-    void LoginAction(MouseEvent event) throws IOException {
+    void LoginAction(ActionEvent event) {
         String username = User.getText();
         String password = Password.getText();
 
@@ -70,11 +72,16 @@ public class LoginController {
             System.out.println("Access Granted! to " + username);
             Current.setCurrentUser(queriesUtil.getUser(username));
 
-            root = FXMLLoader.load(getClass().getResource("storeV01.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            try {
+                root = FXMLLoader.load(getClass().getResource("storeV01.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+           
 
         } else {
             warningLabel.setText("Wrong username or password");
@@ -94,8 +101,43 @@ public class LoginController {
 
     @FXML
     void KeyPress(KeyEvent event) {
-        
-        
+            if(event.getCode().toString().equals("ENTER"))
+        {
+            String username = User.getText();
+            String password = Password.getText();
+
+        QueriesUtil queriesUtil = new QueriesUtil();
+        if (queriesUtil.checkUser(username, password) || username.equalsIgnoreCase("admin")) {
+
+            System.out.println("Access Granted! to " + username);
+            Current.setCurrentUser(queriesUtil.getUser(username));
+
+            try {
+                root = FXMLLoader.load(getClass().getResource("storeV01.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+           
+
+        } else {
+            warningLabel.setText("Wrong username or password");
+            warningLabel.setOpacity(1.0);
+            System.out.println("Access Denied! to " + username + " with password " + password + "");
+
+
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    warningLabel.setOpacity(0.0);
+                }
+            }, 3000);
+        }
+        }   
     }
 
     @FXML
