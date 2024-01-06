@@ -85,7 +85,26 @@ public class CardController {
 
     @FXML
     void purchaseButton(ActionEvent event) {
-        vBox.getChildren().clear();
+
+        if (true){
+            QueriesUtil queriesUtil = new QueriesUtil();
+            System.out.println(queriesUtil.getBalanceOfUser() + " and "+ totalPrice);
+            for (Game game : queriesUtil.getBasket()) {
+                queriesUtil.addGameToInventory(game);
+                queriesUtil.deleteFromBasket(game);
+            }
+
+            try {
+                root = FXMLLoader.load(getClass().getResource("cardV01.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+
     }
 
     HBox generateGameTile(Game game){

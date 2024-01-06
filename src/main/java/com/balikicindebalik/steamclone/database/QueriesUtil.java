@@ -282,6 +282,31 @@ public class QueriesUtil implements Util {
             return false;
     }
 
+
+    public double getBalanceOfUser(){
+        String query = "SELECT balance FROM User WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            double balance = 0;
+            while (rs.next()) {
+                balance = rs.getDouble(1);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return balance;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return -1;
+    }
+
     @Override
     public void addGame(Game game) {
         int random = (int) (Math.random() * 1000000);
@@ -431,8 +456,84 @@ public class QueriesUtil implements Util {
 
     }
 
-    public List<Game> getInventory() {
+    public void addGameToInventory(Game game) {
+        System.out.println("query");
+        String query = "INSERT INTO Inventory (GameID, UserID,AddedPrice) VALUES (?, ?, ?)";
+        try {
+            Connection conn = DBconnection.connect();
 
-        return null;
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, game.getGameID());
+            ps.setInt(2, Current.getCurrentUser().getUserID());
+            ps.setString(3, game.getGamePrice());
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public List<Game> getInventory() {
+        List<Game> gameList = new ArrayList<>();
+        String query = "SELECT * FROM Inventory LEFT JOIN Game ON Inventory.GameID = Game.GameID WHERE UserID = ? AND Game.GameID IS NOT NULL ORDER BY Date DESC";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Game game = new Game(
+                        rs.getInt("GameID"),
+                        rs.getString("Name"),
+                        rs.getString("Description"),
+                        rs.getString("Price"),
+                        rs.getString("Date"),
+                        rs.getString("DeveloperID"),
+                        rs.getLong("Score")
+                );
+                gameList.add(game);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+        return gameList;
+    }
+
+    public int numberOfItemsInInventory(){
+        String query = "SELECT COUNT(*) FROM Inventory WHERE UserID = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            int count = 0;
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return count;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return -1;
     }
 }

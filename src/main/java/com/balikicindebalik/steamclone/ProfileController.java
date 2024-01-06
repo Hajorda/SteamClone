@@ -134,7 +134,7 @@ public class ProfileController {
         usernameLabel.setText("Username: " + Current.getCurrentUser().getUserName());
         emailLabel.setText("Email: " + Current.getCurrentUser().getEmail());
 
-        gamesVbox.getChildren().add(generateGameTile(Current.getCurrentGame()));
+        addGamesToVbox();
 
     }
 
@@ -197,10 +197,11 @@ public class ProfileController {
 
     }
     private void addGamesToVbox() {
+        System.out.println("adding games to vbox");
         QueriesUtil queriesUtil = new QueriesUtil();
-        gamesVbox.getChildren().clear();
+        //gamesVbox.getChildren().clear();
         for (Game game : queriesUtil.getInventory()) {
-
+            System.out.println("adding game: " + game.getGameName());
             gamesVbox.getChildren().add(generateGameTile(game));
         }
     }
