@@ -109,7 +109,7 @@
                         </Label>
                         <SplitPane dividerPositions="0.827027027027027" prefHeight="30.0" prefWidth="257.0">
                            <items>
-                              <TextField fx:id="findGameField" alignment="CENTER" prefHeight="28.0" prefWidth="189.0" promptText="Find Game" />
+                              <TextField fx:id="findGameField" alignment="CENTER" onKeyPressed="#FindGameListen" prefHeight="28.0" prefWidth="189.0" promptText="Find Game" />
                               <Button fx:id="findGameButton" mnemonicParsing="false" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />
                            </items>
                         </SplitPane>
