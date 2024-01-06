@@ -41,6 +41,9 @@ public class Main {
         for (Game game : a) {
             System.out.println(game.getGameName());
         }
+
+
+
     }
 
     private static void getGame() {

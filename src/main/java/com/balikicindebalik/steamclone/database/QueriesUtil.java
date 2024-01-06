@@ -12,6 +12,11 @@ import java.util.List;
 
 public class QueriesUtil implements Util {
 
+
+
+
+
+
     public void throwToBasket(Game game) {
         System.out.println("query");
         String query = "INSERT INTO Basket (GameID, UserID) VALUES (?, ?)";
@@ -724,4 +729,60 @@ public class QueriesUtil implements Util {
         return null;
 
     }
+
+    public List<String> getAllUserNames(){
+        String query = "SELECT UserName FROM User";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            List<String> userList = new ArrayList<>();
+            while (rs.next()) {
+                userList.add(rs.getString("UserName"));
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+            return userList;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Counting patladı");
+        return null;
+    }
+
+    //Drop Basket Table
+    public void dropBasketTable(){
+        String query = "DROP TABLE Basket";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.executeUpdate();
+            conn.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void alterTableBasket(){
+        String query = "ALTER TABLE Basket RENAME COLUMN GameID TO GameID2";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.executeUpdate();
+            conn.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //ADD 10 RANDOM GAMES TO BASKET
+
+
+
 }
