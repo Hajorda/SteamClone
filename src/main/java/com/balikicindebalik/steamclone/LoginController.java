@@ -52,7 +52,7 @@ public class LoginController {
 
 
     @FXML
-    void LoginAction(ActionEvent event) {
+    void LoginAction(MouseEvent event) {
         String username = User.getText();
         String password = Password.getText();
 

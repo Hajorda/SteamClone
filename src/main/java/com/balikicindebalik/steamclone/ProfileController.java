@@ -95,7 +95,7 @@ public class ProfileController {
     void adminBtnAction(ActionEvent event) {
 
             try {
-                root = FXMLLoader.load(getClass().getResource("adminV01.fxml"));
+                root = FXMLLoader.load(getClass().getResource("AdminPageV01.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
