@@ -64,22 +64,22 @@ public class StoreController {
     @FXML
     void GoProfile(ActionEvent event) throws Exception {
 
-                root = FXMLLoader.load(getClass().getResource("ProfileV01.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+        root = FXMLLoader.load(getClass().getResource("ProfileV01.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
-     @FXML
+    @FXML
     void GoCard(ActionEvent event) throws Exception {
 
-                root = FXMLLoader.load(getClass().getResource("cardV01.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+        root = FXMLLoader.load(getClass().getResource("cardV01.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -94,7 +94,7 @@ public class StoreController {
         List<Game> searchedGameList = new ArrayList<>();
         for (Game game : gameList) {
             if (game.getGameName().equalsIgnoreCase(gameName)) {
-               searchedGameList.add(game);
+                searchedGameList.add(game);
             }
         }
         vbox.getChildren().clear();
@@ -105,12 +105,12 @@ public class StoreController {
             vbox.getChildren().add(p);
         }
 
-        if(gameName.equals("")){ // yazı yoksa
-            for (Game game : gameList) { 
-            vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
-            Pane p = new Pane();
-            p.setPrefHeight(10);
-            vbox.getChildren().add(p);
+        if (gameName.equals("")) { // yazı yoksa
+            for (Game game : gameList) {
+                vbox.getChildren().add(generateHBox(game.getGameName(), game.getGamePrice(), "asd"));
+                Pane p = new Pane();
+                p.setPrefHeight(10);
+                vbox.getChildren().add(p);
             }
         }
 
@@ -119,58 +119,58 @@ public class StoreController {
 
     // Hbox generation
 
-        public HBox generateHBox(String gameName, String gamePrice, String gamePicture) {
+    public HBox generateHBox(String gameName, String gamePrice, String gamePicture) {
 
-            HBox hbox = new HBox();
+        HBox hbox = new HBox();
 
-            hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
-            hbox.setSpacing(10);
-            hbox.setPadding(new javafx.geometry.Insets(10, 0, 10, 0));
-            hbox.setStyle("-fx-background-color:  #d7d7d7;");
-            HBox.setMargin( hbox, new Insets(10, 0, 10, 0));
+        hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
+        hbox.setSpacing(10);
+        hbox.setPadding(new javafx.geometry.Insets(10, 0, 10, 0));
+        hbox.setStyle("-fx-background-color:  #d7d7d7;");
+        HBox.setMargin(hbox, new Insets(10, 0, 10, 0));
 
-            Button gameButton = new Button(gameName);
-            gameButton.setPrefWidth(120);
+        Button gameButton = new Button(gameName);
+        gameButton.setPrefWidth(120);
 
-            Label gameNameLabel = new Label(gameName);
-            gameNameLabel.setPrefWidth(190);
-            gameNameLabel.setAlignment(Pos.CENTER);
+        Label gameNameLabel = new Label(gameName);
+        gameNameLabel.setPrefWidth(190);
+        gameNameLabel.setAlignment(Pos.CENTER);
 
-            Pane pp = new Pane();
-            pp.setPrefWidth(166);
-            
-            Label gamePriceLabel = new Label(gamePrice);
-            gamePriceLabel.setPrefWidth(209);
-            gamePriceLabel.setAlignment(Pos.CENTER_RIGHT);
-            gamePriceLabel.setTextFill(Color.web("#27861c"));
+        Pane pp = new Pane();
+        pp.setPrefWidth(166);
+
+        Label gamePriceLabel = new Label(gamePrice);
+        gamePriceLabel.setPrefWidth(209);
+        gamePriceLabel.setAlignment(Pos.CENTER_RIGHT);
+        gamePriceLabel.setTextFill(Color.web("#27861c"));
 
 
-            gameButton.setOnAction(e -> {
-                System.out.println("button");
-                System.out.println("Game name: " + gameName);
-                System.out.println("Game price: " + gamePrice);
-                System.out.println("Game picture: " + gamePicture);
+        gameButton.setOnAction(e -> {
+            System.out.println("button");
+            System.out.println("Game name: " + gameName);
+            System.out.println("Game price: " + gamePrice);
+            System.out.println("Game picture: " + gamePicture);
 
-                QueriesUtil queriesUtil = new QueriesUtil();
-                Game game = queriesUtil.getGame(gameName);
+            QueriesUtil queriesUtil = new QueriesUtil();
+            Game game = queriesUtil.getGame(gameName);
 
-                Current.setCurrentGame(game);
-                System.out.println("a");
+            Current.setCurrentGame(game);
+            System.out.println("a");
 
-                try {
-                    root = FXMLLoader.load(getClass().getResource("GameAppV01.fxml"));
-                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
+            try {
+                root = FXMLLoader.load(getClass().getResource("GameAppV01.fxml"));
+                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
 
-            });
-            hbox.getChildren().addAll(gameButton, gameNameLabel, pp, gamePriceLabel);
-            return hbox;
-        }
+        });
+        hbox.getChildren().addAll(gameButton, gameNameLabel, pp, gamePriceLabel);
+        return hbox;
+    }
 
 
          @FXML
@@ -199,7 +199,7 @@ public class StoreController {
             vbox.getChildren().add(p);
         }
 
-        cardLabel.setText(cardLabel.getText() + " "+ queriesUtil.getBasket().size());
+        cardLabel.setText(cardLabel.getText() + " " + queriesUtil.getBasket().size());
     }
 
 }

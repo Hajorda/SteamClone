@@ -12,7 +12,7 @@ import java.util.List;
 
 public class QueriesUtil implements Util {
 
-    public void throwToBasket(Game game){
+    public void throwToBasket(Game game) {
         System.out.println("query");
         String query = "INSERT INTO Basket (GameID, UserID) VALUES (?, ?)";
         try {
@@ -57,10 +57,10 @@ public class QueriesUtil implements Util {
             conn.close();
             ps.close();
 
-                System.out.println("Connection closed");
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            System.out.println("Connection closed");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
 
     }
@@ -86,10 +86,11 @@ public class QueriesUtil implements Util {
             System.out.println(e.getMessage());
         }
         System.out.println("Counting patladı");
-        return  -1;
+        return -1;
 
     }
-    public List<Game> getBasket(){
+
+    public List<Game> getBasket() {
         List<Game> gameList = new ArrayList<>();
         String query = "SELECT * FROM Basket LEFT JOIN Game ON Basket.GameID = Game.GameID WHERE UserID = ? ORDER BY Date DESC";
         try {
@@ -120,6 +121,7 @@ public class QueriesUtil implements Util {
         }
         return gameList;
     }
+
     public void throwToBasket(Dlc dlc) throws SQLException {
         System.out.println("query");
         String query = "INSERT INTO Basket (DLC_ID, UserID) VALUES (?, ?)";
@@ -127,8 +129,7 @@ public class QueriesUtil implements Util {
             Connection conn = DBconnection.connect();
 
             PreparedStatement ps = conn.prepareStatement(query);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -428,5 +429,10 @@ public class QueriesUtil implements Util {
     @Override
     public void removeDeveloper(Developer developer) {
 
+    }
+
+    public List<Game> getInventory() {
+
+        return null;
     }
 }
