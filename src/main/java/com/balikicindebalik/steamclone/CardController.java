@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -49,6 +51,9 @@ public class CardController {
 
     @FXML
     private VBox vBox;
+
+    @FXML
+    private ScrollPane SP;
 
     private double totalPrice = 0;
 
@@ -87,25 +92,26 @@ public class CardController {
 
         HBox hBox = new HBox();
         Button gamebutton = new Button(game.getGameName());
-        gamebutton.setPrefWidth(209);
+        gamebutton.setPrefWidth(200);//
         gamebutton.setPrefHeight(30);
 
         Button deleteButton = new Button("X");
         deleteButton.setStyle("-fx-background-color: #FFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #94949a; -fx-border-width: 2px;");
-        deleteButton.setPrefWidth(100);
+        deleteButton.setPrefWidth(40);//
         deleteButton.setPrefHeight(30);
         deleteButton.setStyle("-fx-background-color: rgba(255, 99, 71, 0.8)");
-        deleteButton.setPadding(new javafx.geometry.Insets(0, 0, 0, 0));
+        //deleteButton.setPadding(new javafx.geometry.Insets(0, 0, 0, 0));
 
         Label gameprice = new Label(game.getGamePrice());
         gameprice.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-        gameprice.setPrefWidth(209);
-        gameprice.setPadding(new javafx.geometry.Insets(7, 50, 0, 0));
+        gameprice.setPrefWidth(120);//
+        gameprice.setPrefHeight(30);
+        //gameprice.setPadding(new javafx.geometry.Insets(7, 50, 0, 0));
         hBox.setStyle("-fx-background-color: #FFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #94949a; -fx-border-width: 2px;");
-        HBox.setHgrow(hBox, javafx.scene.layout.Priority.ALWAYS);
-        HBox.setMargin( hBox, new Insets(10, 0, 10, 0));
-        hBox.setSpacing(1);
-        hBox.setPadding(new javafx.geometry.Insets(0, 0, 0, 0));
+        //HBox.setHgrow(hBox, javafx.scene.layout.Priority.ALWAYS);
+        //HBox.setMargin( hBox, new Insets(10, 0, 10, 0));
+        //hBox.setSpacing(1);
+        //hBox.setPadding(new javafx.geometry.Insets(0, 0, 0, 0));
         hBox.getChildren().addAll(gamebutton, deleteButton, gameprice);
 
         //When cliclked on game button
@@ -158,6 +164,7 @@ public class CardController {
     @FXML
     void initialize() {
         assert ProfileBtn != null : "fx:id=\"ProfileBtn\" was not injected: check your FXML file 'cardV01.fxml'.";
+        assert SP != null : "fx:id=\"SP\" was not injected: check your FXML file 'cardV01.fxml'.";
         assert StoreButton != null : "fx:id=\"StoreButton\" was not injected: check your FXML file 'cardV01.fxml'.";
         assert balanceLabel != null : "fx:id=\"balanceLabel\" was not injected: check your FXML file 'cardV01.fxml'.";
         assert purchaseButton != null : "fx:id=\"purchaseButton\" was not injected: check your FXML file 'cardV01.fxml'.";
