@@ -1,0 +1,3 @@
+2 tane queri yazılacak 
+
+bunlardan 1. current userın Name ini 2.si ise ise Surname ini değiştirecek
