@@ -43,5 +43,6 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <Label alignment="CENTER" layoutX="213.0" layoutY="555.0" prefHeight="17.0" prefWidth="476.0" text="(Email must include &quot;@gmail.com&quot; , &quot;@hotmail.com&quot; , &quot;@admin&quot; , &quot;@tedu.edu.tr&quot;)" />
    </children>
 </Pane>
