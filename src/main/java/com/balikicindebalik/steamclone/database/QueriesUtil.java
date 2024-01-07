@@ -232,16 +232,12 @@ public class QueriesUtil implements Util {
                 return tUser;
             }
 
-
-            try {
                 conn.close();
                 rs.close();
                 ps.close();
                 System.out.println("Connection closed");
                 return null;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " ?");
             //TODO Exception handling!
@@ -707,11 +703,22 @@ public class QueriesUtil implements Util {
             ps.setInt(1, Current.getCurrentUser().getUserID());
             ResultSet rs = ps.executeQuery();
 
+            Game a = new Game();
+
             if (rs.next()) {
-                Game a = getGameById(Integer.parseInt(rs.getString("GameID"))
 
+                String s = rs.getString("GameID");
 
-                );
+                if(s == null){
+                    //System.out.println("dnm");
+                }
+                else{
+                    //System.out.println("dnm2");
+                    a = getGameById(Integer.parseInt(s));
+                }
+
+                //a = getGameById(Integer.parseInt(rs.getString("GameID")));
+
                 conn.close();
                 rs.close();
                 ps.close();
@@ -721,6 +728,7 @@ public class QueriesUtil implements Util {
             conn.close();
             rs.close();
             ps.close();
+
             return null;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -780,6 +788,116 @@ public class QueriesUtil implements Util {
             System.out.println(e.getMessage());
         }
     }
+
+    // for frends -----------------------------------------
+
+     public void addFriend(int user1ID , int user2ID) {
+
+        //Burası s
+        String query = "INSERT INTO FriendR (FriendID1, FriendID2) VALUES (?, ?)";
+        try {
+            Connection conn = DBconnection.connect();
+
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, user1ID);
+            ps.setInt(2, user2ID);
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "done");
+        }
+
+        query = "INSERT INTO FriendR (FriendID2, FriendID1) VALUES (?, ?)";
+        try {
+            Connection conn = DBconnection.connect();
+
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ps.setInt(1, user1ID);
+            ps.setInt(2, user2ID);
+            ps.executeUpdate();
+            try {
+                conn.close();
+                ps.close();
+                System.out.println("Connection closed");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "done");
+        }
+
+    }
+
+    public List<Integer> getCurrFriendsID() {
+        List<Integer> FriendsList = new ArrayList<>();
+        String query = "SELECT * FROM FriendR WHERE FriendID1 = ?";
+        try {
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, Current.getCurrentUser().getUserID());
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int fri = rs.getInt("FriendID2");
+                FriendsList.add(fri);
+            }
+
+            conn.close();
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return FriendsList;
+    }
+
+    public User getUserByID(int ID) {
+        String query = "Select * from User WHERE UserID = ?";
+        try {
+
+            Connection conn = DBconnection.connect();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, ID);
+            ResultSet rs = ps.executeQuery();
+            int count = 0;
+
+
+            if (rs.next()) {
+                User tUser = new User(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Email"), rs.getString("Password"));
+                conn.close();
+                rs.close();
+                ps.close();
+
+                return tUser;
+            }
+
+
+            try {
+                conn.close();
+                rs.close();
+                ps.close();
+                System.out.println("Connection closed");
+                return null;
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " ?");
+            //TODO Exception handling!
+        }
+        return null;
+    }
+
+    // ------------------------------------------
 
     //ADD 10 RANDOM GAMES TO BASKET
 

@@ -11,6 +11,8 @@ public class Game {
 
     public Game() {
 
+        gameName = null;
+
     }
 
     public String getDescription() {

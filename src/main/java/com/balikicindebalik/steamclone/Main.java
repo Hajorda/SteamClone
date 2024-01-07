@@ -1,5 +1,6 @@
 package com.balikicindebalik.steamclone;
 import com.balikicindebalik.steamclone.database.QueriesUtil;
+import com.balikicindebalik.steamclone.entities.Current;
 import com.balikicindebalik.steamclone.entities.Game;
 import com.balikicindebalik.steamclone.entities.User;
 
@@ -13,7 +14,18 @@ public class Main {
     public static void main(String[] args) {
 //addGames();
 
+        //deneme -------------------------------------------------------
 
+        //QueriesUtil queriesUtil = new QueriesUtil();
+        //queriesUtil.addFriend(queriesUtil.getUser("admin").getUserID(), queriesUtil.getUser("anan").getUserID());
+
+        //queriesUtil.addUser(new User(00,"kutay","Kutay","Aydemir","kutay.aydemir@tedu.edu.tr","kutay123")); // Id random atanıyor
+        
+        /* Current.setCurrentUser(new User(queriesUtil.getUser("kutay").getUserID(),"a","a","a","a","a"));// nick name dali
+        for(int a : queriesUtil.getCurrFriendsID()){
+            System.out.println(queriesUtil.getUserByID(a).getUserName());
+        } */
+        //deneme -------------------------------------------------------
 
     }
 

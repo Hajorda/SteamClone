@@ -23,14 +23,27 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class ProfileController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button BTNfindFriend;
 
     @FXML
     private Button ProfileBtn;
 
     @FXML
     private Button StoreBtn;
+
+    @FXML
+    private TextField TFfindFriend;
 
     @FXML
     private Button adminBtn;
@@ -43,6 +56,9 @@ public class ProfileController {
 
     @FXML
     private Label emailLabel;
+
+    @FXML
+    private Label findfriendwarning;
 
     @FXML
     private VBox friendsVbox;
@@ -66,15 +82,17 @@ public class ProfileController {
     private Label totalGame;
 
     @FXML
-    private Label usernameLabel;
+    private Label totalPrice;
 
     @FXML
-    private Label totalPrice;
+    private Label usernameLabel;
 
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    QueriesUtil queriesUtil = new QueriesUtil();
 
      @FXML
     void GoCard(ActionEvent event) throws Exception {
@@ -143,7 +161,9 @@ public class ProfileController {
 
     @FXML
     void FindGameListen(KeyEvent event) {
-
+        if(event.getCode().toString().equals("ENTER")){
+            BTNfindFriendAction(null);
+        }
     }
     @FXML
     void gameSearchButton(MouseEvent event) {
@@ -153,10 +173,26 @@ public class ProfileController {
     @FXML
     void initialize() {
 
+        assert BTNfindFriend != null : "fx:id=\"BTNfindFriend\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert ProfileBtn != null : "fx:id=\"ProfileBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert StoreBtn != null : "fx:id=\"StoreBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert TFfindFriend != null : "fx:id=\"TFfindFriend\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert adminBtn != null : "fx:id=\"adminBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert avarageTotalPrice != null : "fx:id=\"avarageTotalPrice\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert cardLabel != null : "fx:id=\"cardLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert emailLabel != null : "fx:id=\"emailLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert findfriendwarning != null : "fx:id=\"findfriendwarning\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert friendsVbox != null : "fx:id=\"friendsVbox\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert gamesVbox != null : "fx:id=\"gamesVbox\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert maxPriceGame != null : "fx:id=\"maxPriceGame\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert rootPane != null : "fx:id=\"rootPane\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert surnameLabel != null : "fx:id=\"surnameLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert totalGame != null : "fx:id=\"totalGame\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert totalPrice != null : "fx:id=\"totalPrice\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert usernameLabel != null : "fx:id=\"usernameLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+
+        findfriendwarning.setVisible(false);
 
         if (Current.getCurrentUser().getUserName().equalsIgnoreCase("admin")) {
             adminBtn.setVisible(true);
@@ -164,7 +200,7 @@ public class ProfileController {
             adminBtn.setVisible(false);
         }
 
-        QueriesUtil queriesUtil = new QueriesUtil();
+        //QueriesUtil queriesUtil = new QueriesUtil();
         cardLabel.setText(cardLabel.getText() + " "+ queriesUtil.getBasket().size());
 
         nameLabel.setText("Name: " + Current.getCurrentUser().getName());
@@ -178,11 +214,86 @@ public class ProfileController {
 
         avarageTotalPrice.setText("Avarage Price: " + queriesUtil.avaragePriceOfGamesInInventory());
 
-        maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
-
+        if(queriesUtil.maxPriceGameInInventory().getGameName() == null){
+            //System.out.println("asd");
+            maxPriceGame.setText("Max Price Game: " + "No Game");
+        }
+        else{
+            //System.out.println("dsa");
+            maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
+        }
+        
+        //maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
+        
         System.out.println(queriesUtil.totalPriceOfGameInInventory());
         totalPrice.setText("Total Price: " + queriesUtil.totalPriceOfGameInInventory());
+
+        lable_giver();
      }
+
+     @FXML
+    void BTNfindFriendAction(ActionEvent event) {
+
+        String FriendName = TFfindFriend.getText();
+        //System.out.println("Yazdın = " + FriendName);
+        if(queriesUtil.getUser(FriendName) == null){
+            //System.out.println("Boyle kullanıcı Yok");
+            findfriendwarning.setText("Boyle kullanıcı Yok");
+            findfriendwarning.setTextFill(Color.RED);
+            findfriendwarning.setVisible(true);
+        }
+        else if(queriesUtil.getUser(FriendName).getUserID() == Current.getCurrentUser().getUserID()){
+            //System.out.println("Aynı kişiyi yazdın");
+            findfriendwarning.setText("Aynı kişiyi yazdın");
+            findfriendwarning.setTextFill(Color.RED);
+            findfriendwarning.setVisible(true);
+        }
+        else{
+
+            boolean C = true;
+            
+            for(int a : queriesUtil.getCurrFriendsID()){
+                if(a == queriesUtil.getUser(FriendName).getUserID()){
+                    C = false;
+                }
+            }
+
+            if(C){
+                //System.out.println("Boyle kullanıcı Var");
+                findfriendwarning.setText("Boyle kullanıcı Var +EKLENDİ");
+                findfriendwarning.setTextFill(Color.GREEN);
+                findfriendwarning.setVisible(true);
+
+                queriesUtil.addFriend(Current.getCurrentUser().getUserID() , queriesUtil.getUser(FriendName).getUserID());
+                
+                friendsVbox.getChildren().clear();
+
+                lable_giver();
+            }
+            else{
+                //System.out.println("Zaten arkadaş listesinde");
+                findfriendwarning.setText("Zaten arkadaş listesinde");
+                findfriendwarning.setTextFill(Color.RED);
+                findfriendwarning.setVisible(true);
+            }
+
+        }
+
+    }
+
+    public void lable_giver(){
+         for(int a : queriesUtil.getCurrFriendsID()){
+            //System.out.println(queriesUtil.getUserByID(a).getUserName());
+
+            Label l = new Label();
+            l.setText(queriesUtil.getUserByID(a).getUserName());
+            l.setPrefWidth(420);
+            l.setPrefHeight(20);
+            l.setAlignment(Pos.CENTER);
+            l.setStyle("-fx-border-color: Black;");
+            friendsVbox.getChildren().add(l);
+        }
+    }
 
     //Add games to from inventory
     public HBox generateGameTile(Game game){
@@ -251,6 +362,7 @@ public class ProfileController {
             gamesVbox.getChildren().add(generateGameTile(game));
         }
     }
+
 
 
 

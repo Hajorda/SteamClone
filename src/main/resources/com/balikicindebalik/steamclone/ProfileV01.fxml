@@ -103,17 +103,11 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <VBox fx:id="gamesVbox" layoutX="14.0" layoutY="51.0" prefHeight="450.0" prefWidth="532.0" style="-fx-background-color: #d7d7d7;">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="gamesVbox" layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="532.0" style="-fx-background-color: #d7d7d7; -fx-border-color: black;" />
                               <Label fx:id="totalGame" alignment="CENTER" layoutX="708.0" layoutY="459.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Game = 10" />
                               <Label fx:id="totalPrice" alignment="CENTER" layoutX="708.0" layoutY="407.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Price =" />
                               <Label fx:id="avarageTotalPrice" alignment="CENTER" layoutX="708.0" layoutY="350.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Avg Total Price =" />
                               <Label fx:id="maxPriceGame" alignment="CENTER" layoutX="708.0" layoutY="296.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Max Game Price =" />
-                              <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#maxToMin" prefHeight="25.0" prefWidth="82.0" text="Max to Min" />
-                              <Button layoutX="103.0" layoutY="17.0" mnemonicParsing="false" onAction="#minToMax" prefHeight="25.0" prefWidth="82.0" text="Min to Max" />
                            </children>
                         </AnchorPane>
                      </content></Tab>
@@ -121,30 +115,18 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <VBox fx:id="friendsVbox" layoutX="14.0" layoutY="17.0" prefHeight="484.0" prefWidth="407.0" style="-fx-border-color: black;">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="631.0" text="Label" />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="friendsVbox" layoutX="14.0" layoutY="17.0" prefHeight="484.0" prefWidth="420.0" style="-fx-border-color: black;" />
                               <SplitPane dividerPositions="0.5" layoutX="538.0" layoutY="473.0" prefHeight="30.0" prefWidth="257.0">
                                  <items>
-                                    <TextField alignment="CENTER" onKeyPressed="#FindGameListen" prefHeight="28.0" prefWidth="189.0" promptText="Find Friend" />
-                                    <Button mnemonicParsing="false" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />
+                                    <TextField fx:id="TFfindFriend" alignment="CENTER" onKeyPressed="#FindGameListen" prefHeight="28.0" prefWidth="189.0" promptText="Find Friend" />
+                                    <Button fx:id="BTNfindFriend" mnemonicParsing="false" onAction="#BTNfindFriendAction" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />
                                  </items>
                               </SplitPane>
+                              <Label fx:id="findfriendwarning" alignment="CENTER" layoutX="538.0" layoutY="411.0" prefHeight="44.0" prefWidth="257.0" text="hata code" textFill="RED">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                   </content>
                 </Tab>
