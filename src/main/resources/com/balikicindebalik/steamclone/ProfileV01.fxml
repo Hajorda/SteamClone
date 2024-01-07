@@ -103,7 +103,7 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <VBox fx:id="gamesVbox" layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="532.0" style="-fx-background-color: #d7d7d7; -fx-border-color: black;" />
+                              <VBox fx:id="gamesVbox" layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="600.0" style="-fx-background-color: #d7d7d7; -fx-border-color: black;" />
                               <Label fx:id="totalGame" alignment="CENTER" layoutX="708.0" layoutY="459.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Game = 10" />
                               <Label fx:id="totalPrice" alignment="CENTER" layoutX="708.0" layoutY="407.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Total Price =" />
                               <Label fx:id="avarageTotalPrice" alignment="CENTER" layoutX="708.0" layoutY="350.0" prefHeight="44.0" prefWidth="178.0" style="-fx-border-color: black;" text="Avg Total Price =" />

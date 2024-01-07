@@ -225,7 +225,7 @@ public class ProfileController {
         
         //maxPriceGame.setText("Max Price Game: " + queriesUtil.maxPriceGameInInventory().getGamePrice());
         
-        System.out.println(queriesUtil.totalPriceOfGameInInventory());
+        //System.out.println(queriesUtil.totalPriceOfGameInInventory());
         totalPrice.setText("Total Price: " + queriesUtil.totalPriceOfGameInInventory());
 
         lable_giver();
@@ -310,19 +310,19 @@ public class ProfileController {
         gameButton.setStyle("-fx-background-color: #933737; -fx-background-radius: 10px;");
 
         Label gameNameLabel = new Label(game.getMadeBy());
-        gameNameLabel.setPrefWidth(209);
-        gameNameLabel.setAlignment(Pos.CENTER_LEFT);
+        gameNameLabel.setPrefWidth(150);
+        gameNameLabel.setAlignment(Pos.CENTER);
         gameNameLabel.setTextFill(Color.web("#ffffff"));
 
 
         Label label2 = new Label(game.getGameReleaseDate());
-        label2.setPrefWidth(109);
+        label2.setPrefWidth(90);
         gameNameLabel.setAlignment(Pos.CENTER_LEFT);
         gameNameLabel.setTextFill(Color.web("#ffffff"));
 
 
         Label gamePriceLabel = new Label(game.getGamePrice() + " TL");
-        gamePriceLabel.setPrefWidth(59);
+        gamePriceLabel.setPrefWidth(150);
         gamePriceLabel.setAlignment(Pos.CENTER_RIGHT);
         gamePriceLabel.setTextFill(Color.web("#27861c"));
         gamePriceLabel.setStyle("-fx-font-weight: bold;");

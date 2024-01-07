@@ -3,3 +3,5 @@
 bunlardan 1. current userın Name ini 2.si ise ise Surname ini değiştirecek
 
 Aynı zamanda hızlıca bir sign in kısmı yaptım eğer ekleneceksek onuda bağlamamız gerek ben şimdilik yapıp koydum
+
+birde mygame in avg si yanlış olabilir tam anlamadım
