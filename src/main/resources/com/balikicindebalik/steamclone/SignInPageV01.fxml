@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.SignInController">
    <children>
-      <VBox layoutX="305.0" layoutY="195.0" prefHeight="210.0" prefWidth="290.0">
+      <VBox layoutX="343.0" layoutY="195.0" prefHeight="210.0" prefWidth="290.0">
          <children>
-            <TextField alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="User Name" />
+            <TextField fx:id="userNameTF" alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="User Name" />
             <Pane prefHeight="15.0" prefWidth="290.0" />
-            <TextField alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Name" />
+            <TextField fx:id="NameTF" alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Name" />
             <Pane prefHeight="15.0" prefWidth="290.0" />
-            <TextField alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="SurName" />
+            <TextField fx:id="surNameTF" alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="SurName" />
             <Pane prefHeight="15.0" prefWidth="290.0" />
-            <TextField alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Email" />
+            <TextField fx:id="emailTF" alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Email" />
             <Pane prefHeight="15.0" prefWidth="290.0" />
-            <TextField alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Password" />
+            <TextField fx:id="passTF" alignment="CENTER" prefHeight="30.0" prefWidth="290.0" promptText="Password" />
          </children>
       </VBox>
       <Label alignment="CENTER" layoutX="242.0" layoutY="50.0" prefHeight="78.0" prefWidth="417.0" style="-fx-background-color: black;" text="SIGN IN" textFill="WHITE">
@@ -27,7 +27,21 @@
             <Font name="Century" size="60.0" />
          </font>
       </Label>
-      <Button layoutX="354.0" layoutY="457.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="193.0" text="OK" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoProfile" prefHeight="50.0" prefWidth="87.0" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
+      <Button layoutX="354.0" layoutY="457.0" mnemonicParsing="false" onAction="#createUserAction" prefHeight="78.0" prefWidth="193.0" text="OK" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoLogin" prefHeight="50.0" prefWidth="87.0" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
+      <Pane layoutX="219.0" layoutY="195.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="109.0" text="UserName:" />
+            <Label alignment="CENTER_RIGHT" layoutY="45.0" prefHeight="30.0" prefWidth="109.0" text="Name:" />
+            <Label alignment="CENTER_RIGHT" layoutY="90.0" prefHeight="30.0" prefWidth="109.0" text="Surname:" />
+            <Label alignment="CENTER_RIGHT" layoutY="137.0" prefHeight="30.0" prefWidth="109.0" text="Email:" />
+            <Label alignment="CENTER_RIGHT" layoutY="180.0" prefHeight="30.0" prefWidth="109.0" text="Passworsd:" />
+         </children>
+      </Pane>
+      <Label fx:id="warningLabel" alignment="CENTER" layoutX="272.0" layoutY="142.0" prefHeight="28.0" prefWidth="357.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

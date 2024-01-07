@@ -95,6 +95,7 @@
                                     <Button mnemonicParsing="false" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />
                                  </items>
                               </SplitPane>
+                              <Button layoutX="14.0" layoutY="469.0" mnemonicParsing="false" onAction="#GoLogin" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: black;" text="Log out" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </content>

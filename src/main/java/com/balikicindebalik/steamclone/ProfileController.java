@@ -363,7 +363,19 @@ public class ProfileController {
         }
     }
 
+    @FXML
+    void GoLogin(ActionEvent event) {
+        try {
+                root = FXMLLoader.load(getClass().getResource("loginV01.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
 
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+    }
 
 
 
