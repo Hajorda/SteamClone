@@ -1,0 +1,1 @@
+Programı "src\main\java\com\balikicindebalik\steamclone\Main.java" den çalıştırabilirsiniz
