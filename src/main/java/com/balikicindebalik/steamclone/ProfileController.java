@@ -194,11 +194,13 @@ public class ProfileController {
 
         findfriendwarning.setVisible(false);
 
-        if (Current.getCurrentUser().getUserName().equalsIgnoreCase("admin")) {
+        /* if (Current.getCurrentUser().getUserName().equalsIgnoreCase("admin")) {
             adminBtn.setVisible(true);
         } else {
             adminBtn.setVisible(false);
-        }
+        } */
+
+        adminBtn.setVisible(false);
 
         //QueriesUtil queriesUtil = new QueriesUtil();
         cardLabel.setText(cardLabel.getText() + " "+ queriesUtil.getBasket().size());

@@ -83,13 +83,13 @@
                                  </children>
                               </VBox>
                               <Button fx:id="adminBtn" layoutX="728.0" layoutY="429.0" mnemonicParsing="false" onAction="#adminBtnAction" prefHeight="74.0" prefWidth="158.0" style="-fx-background-color: red; -fx-opacity: 0.5;" text="Admin Btn" textFill="WHITE" />
-                              <SplitPane dividerPositions="0.5" layoutX="556.0" layoutY="137.0" prefHeight="30.0" prefWidth="273.0">
+                              <SplitPane dividerPositions="0.5" layoutX="556.0" layoutY="137.0" prefHeight="30.0" prefWidth="273.0" visible="false">
                                  <items>
                                     <TextField alignment="CENTER" onKeyPressed="#FindGameListen" prefHeight="28.0" prefWidth="189.0" promptText="Change Name" />
                                     <Button mnemonicParsing="false" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />
                                  </items>
                               </SplitPane>
-                              <SplitPane dividerPositions="0.5" layoutX="556.0" layoutY="203.0" prefHeight="30.0" prefWidth="273.0">
+                              <SplitPane dividerPositions="0.5" layoutX="556.0" layoutY="203.0" prefHeight="30.0" prefWidth="273.0" visible="false">
                                  <items>
                                     <TextField alignment="CENTER" onKeyPressed="#FindGameListen" prefHeight="28.0" prefWidth="189.0" promptText="Change Surname" />
                                     <Button mnemonicParsing="false" onMouseClicked="#gameSearchButton" prefHeight="28.0" prefWidth="28.0" text="✓" />

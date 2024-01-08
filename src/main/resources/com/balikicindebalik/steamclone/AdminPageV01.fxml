@@ -9,17 +9,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.balikicindebalik.steamclone.AdminPageController">
    <children>
-      <VBox layoutX="214.0" layoutY="130.0" prefHeight="430.0" prefWidth="472.0" style="-fx-border-color: black; -fx-background-color: lightgray;">
+      <VBox layoutX="134.0" layoutY="207.0" prefHeight="187.0" prefWidth="273.0" style="-fx-border-color: black; -fx-background-color: lightgray;">
          <children>
             <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="1st setting" />
             <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="2st setting" />
             <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="3st setting" />
             <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="4st setting" />
             <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="5st setting" />
-            <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="6st setting" />
-            <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="7st setting" />
-            <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="8st setting" />
-            <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="470.0" style="-fx-border-color: gray;" text="9st setting" />
          </children>
       </VBox>
       <Label alignment="CENTER" layoutX="301.0" layoutY="46.0" prefHeight="72.0" prefWidth="299.0" style="-fx-border-color: black; -fx-border-radius: 10px;" text="ADMIN SETTİNGS" textFill="#bf1717">
@@ -28,5 +24,15 @@
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoProfile" prefHeight="50.0" prefWidth="87.0" style="-fx-background-color: rgba(255, 99, 71, 1);" text="Back" textFill="WHITE" />
+      <VBox layoutX="512.0" layoutY="169.0" prefHeight="389.0" prefWidth="223.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A1" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A2" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A3" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A4" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A5" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="223.0" text="A6" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
