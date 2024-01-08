@@ -73,6 +73,9 @@ public class ProfileController {
     private Label nameLabel;
 
     @FXML
+    private Label balanceLabel;
+
+    @FXML
     private AnchorPane rootPane;
 
     @FXML
@@ -93,6 +96,18 @@ public class ProfileController {
     private Parent root;
 
     QueriesUtil queriesUtil = new QueriesUtil();
+
+    @FXML
+    void addfiveTLaction(ActionEvent event) {
+
+        //System.out.println(queriesUtil.getBalanceOfUser());
+
+        queriesUtil.setBalanceOfUser(queriesUtil.getBalanceOfUser()+5);
+
+        //System.out.println(queriesUtil.getBalanceOfUser());
+
+        balanceLabel.setText("  Balance : " + queriesUtil.getBalanceOfUser()+ " TL");
+    }
 
      @FXML
     void GoCard(ActionEvent event) throws Exception {
@@ -179,6 +194,7 @@ public class ProfileController {
         assert TFfindFriend != null : "fx:id=\"TFfindFriend\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert adminBtn != null : "fx:id=\"adminBtn\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert avarageTotalPrice != null : "fx:id=\"avarageTotalPrice\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+        assert balanceLabel != null : "fx:id=\"balanceLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert cardLabel != null : "fx:id=\"cardLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert emailLabel != null : "fx:id=\"emailLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert findfriendwarning != null : "fx:id=\"findfriendwarning\" was not injected: check your FXML file 'ProfileV01.fxml'.";
@@ -191,6 +207,8 @@ public class ProfileController {
         assert totalGame != null : "fx:id=\"totalGame\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert totalPrice != null : "fx:id=\"totalPrice\" was not injected: check your FXML file 'ProfileV01.fxml'.";
         assert usernameLabel != null : "fx:id=\"usernameLabel\" was not injected: check your FXML file 'ProfileV01.fxml'.";
+
+        balanceLabel.setText("  Balance : " + queriesUtil.getBalanceOfUser()+ " TL");
 
         findfriendwarning.setVisible(false);
 
@@ -362,6 +380,13 @@ public class ProfileController {
         for (Game game : queriesUtil.getInventory()) {
             System.out.println("adding game: " + game.getGameName());
             gamesVbox.getChildren().add(generateGameTile(game));
+
+            // araya bosluk ekleyici
+            Pane p = new Pane();
+            p.setPrefHeight(2);
+            gamesVbox.getChildren().add(p);
+            // araya bosluk ekleyici
+            
         }
     }
 

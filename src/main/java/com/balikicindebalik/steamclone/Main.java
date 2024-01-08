@@ -12,20 +12,19 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//addGames();
 
-        //deneme -------------------------------------------------------
+        HelloApplication.main(args); // HelloApplication Calıstırma
+
+        //addGames();
 
         //QueriesUtil queriesUtil = new QueriesUtil();
+
         //queriesUtil.addFriend(queriesUtil.getUser("admin").getUserID(), queriesUtil.getUser("anan").getUserID());
 
         //queriesUtil.addUser(new User(00,"koray","koray","başkoca","koray.başkoca@tedu.edu.tr","123456")); // Id random atanıyor
-        
-        /* Current.setCurrentUser(new User(queriesUtil.getUser("kutay").getUserID(),"a","a","a","a","a"));// nick name dali
-        for(int a : queriesUtil.getCurrFriendsID()){
-            System.out.println(queriesUtil.getUserByID(a).getUserName());
-        } */
-        //deneme -------------------------------------------------------
+
+        //Game g = new Game(00, "Red Dead Redemption 2", "Red Dead Redemption 2 is a 2018 action-adventure game developed and published by Rockstar Games. The game is the third entry in the Red Dead series and a prequel to the 2010 game Red Dead Redemption. The story is set in a fictionalized representation of the United States in 1899 and follows the exploits of Arthur Morgan, an outlaw and member of the Van der Linde gang, who must deal with the decline of the Wild West while attempting to survive against government forces, rival gangs, and other adversaries.", "₺ 1800,00", "26 Oct, 2018", "Rockstar Games");
+        //queriesUtil.addGame(g);
 
     }
 
@@ -38,6 +37,8 @@ public class Main {
         Game game6 = new Game(6, "Half-Life 2", "1998. HALF-LIFE sends a shock through the game industry with its combination of pounding action and continuous, immersive storytelling.", "₺ 24,00", "16 Nov, 2004", "Valve");
         Game game7 = new Game(7, "Half-Life", "Named Game of the Year by over 50 publications, Valve's debut title blends action and adventure with award-winning technology to create a frighteningly realistic world where players must think to survive.", "₺ 24,00", "8 Nov, 1998", "Valve");
         Game game8 = new Game(8, "Counter-Strike: Source", "THE NEXT INSTALLMENT OF THE WORLD'S # 1 ONLINE ACTION GAME Counter-Strike: Source blends Counter-Strike's award-winning teamplay action with the advanced technology of Source™ technology.", "₺ 24,00", "1 Nov, 2004", "Valve");
+        Game game9 = new Game(9, "Baldur's Gate 3", "Baldur's Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons & Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.", "₺ 1050,00", "3 Aug, 2023", "Larian Studios");
+        Game game10 = new Game(10, "Red Dead Redemption 2", "Red Dead Redemption 2 is a 2018 action-adventure game developed and published by Rockstar Games. The game is the third entry in the Red Dead series and a prequel to the 2010 game Red Dead Redemption. The story is set in a fictionalized representation of the United States in 1899 and follows the exploits of Arthur Morgan, an outlaw and member of the Van der Linde gang, who must deal with the decline of the Wild West while attempting to survive against government forces, rival gangs, and other adversaries.", "₺ 1800,00", "26 Oct, 2018", "Rockstar Games");
         QueriesUtil queriesUtil = new QueriesUtil();
         queriesUtil.addGame(game1);
         queriesUtil.addGame(game2);
@@ -47,6 +48,8 @@ public class Main {
         queriesUtil.addGame(game6);
         queriesUtil.addGame(game7);
         queriesUtil.addGame(game8);
+        queriesUtil.addGame(game9);
+        queriesUtil.addGame(game10);
 
         List<Game> a = queriesUtil.getGames();
 

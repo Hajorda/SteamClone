@@ -78,17 +78,17 @@
                               <HBox prefHeight="26.0" prefWidth="692.0" style="-fx-background-color: #656565;">
                                  <children>
                                     <Pane prefHeight="45.0" prefWidth="120.0" />
-                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="190.0" text="NAME" textAlignment="CENTER" textFill="WHITE" underline="true">
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="267.0" text="NAME" textAlignment="CENTER" textFill="WHITE" underline="true">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="154.0" textFill="WHITE" underline="true">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="97.0" textFill="WHITE" underline="true">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="197.0" text="FEE" textFill="WHITE" underline="true">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="181.0" text="FEE" textFill="WHITE" underline="true">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

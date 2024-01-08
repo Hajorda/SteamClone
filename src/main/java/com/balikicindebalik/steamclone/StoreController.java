@@ -123,14 +123,14 @@ public class StoreController {
 
         HBox hbox = new HBox();
 
-        hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
-        hbox.setSpacing(10);
+        //hbox.setHgrow(hbox, javafx.scene.layout.Priority.ALWAYS);
+        //hbox.setSpacing(10);
         hbox.setPadding(new javafx.geometry.Insets(10, 0, 10, 0));
         hbox.setStyle("-fx-background-color:  #d7d7d7;");
         HBox.setMargin(hbox, new Insets(10, 0, 10, 0));
 
         Button gameButton = new Button(gameName);
-        gameButton.setPrefWidth(120);
+        gameButton.setPrefWidth(160);
 
         Label gameNameLabel = new Label(gameName);
         gameNameLabel.setPrefWidth(190);
@@ -140,7 +140,7 @@ public class StoreController {
         pp.setPrefWidth(166);
 
         Label gamePriceLabel = new Label(gamePrice);
-        gamePriceLabel.setPrefWidth(209);
+        gamePriceLabel.setPrefWidth(170);
         gamePriceLabel.setAlignment(Pos.CENTER_RIGHT);
         gamePriceLabel.setTextFill(Color.web("#27861c"));
 
